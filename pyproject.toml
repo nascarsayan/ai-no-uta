@@ -5,17 +5,31 @@ description = "Learning AI"
 authors = ["Sayan Naskar"]
 readme = "README.md"
 
+[[tool.poetry.source]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cpu"
+priority = "explicit"
+
 [tool.poetry.dependencies]
 python = ">=3.13"
 numpy = "^2.2.3"
 pandas = "^2.2.3"
 matplotlib = "^3.10.1"
+# torch = {version = "^2.6.0", source = "pytorch"}
+# torchvision = {version = "^0.21.0", source = "pytorch"}
+# torchaudio = {version = "^2.6.0", source = "pytorch"}
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.5"
 black = "^25.1.0"
 isort = "^6.0.1"
 ipykernel = "^6.29.5"
+
+
+[tool.poetry.group.pytorch.dependencies]
+torch = "^2.6.0"
+torchvision = "^0.21.0"
+torchaudio = "^2.6.0"
 
 [build-system]
 requires = ["poetry-core"]
