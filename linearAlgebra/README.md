@@ -1,6 +1,30 @@
 # Linear Algebra
 
-Learning linear Algebra from [https://www.lem.ma/](https://www.lem.ma/). The plan is to take notes and write sample code in python while learning.
+Learning linear Algebra. The plan is to take notes and write sample code in python while learning.
+
+- Encouraged to follow exercises from the website: [https://www.lem.ma/](https://www.lem.ma/)
+- You can also download videos from the [first youtube Playlist](https://www.youtube.com/watch?list=PLlXfTHzgMRUKXD88IdzS14F4NxAZudSmv) to follow offline.
+- [Youtube Channel](https://www.youtube.com/@MathTheBeautiful).
+- The Professor is [Pavel GrinFeld](https://grinfeld.org/index.html).
+
+List of playlists:
+- [Part 1: Intro and Applications](https://www.youtube.com/playlist?list=PLlXfTHzgMRUKXD88IdzS14F4NxAZudSmv)
+- [Part 2: Intro and Applications](https://www.youtube.com/playlist?list=PLlXfTHzgMRULWJYthculb2QWEiZOkwTSU)
+- [Part 3: Linear Transformations](https://www.youtube.com/watch?list=PLlXfTHzgMRUIqYrutsFXCOmiqKUgOgGJ5)
+- [Part 4: Inner Products](https://www.youtube.com/watch?v=Ww_aQqWZhz8&list=PLlXfTHzgMRULZfrNCrrJ7xDcTjGr633mm)
+
+```bash
+# brew install yt-dlp
+playlistIds=(
+    PLlXfTHzgMRUKXD88IdzS14F4NxAZudSmv
+    PLlXfTHzgMRULWJYthculb2QWEiZOkwTSU
+    PLlXfTHzgMRUIqYrutsFXCOmiqKUgOgGJ5
+    PLlXfTHzgMRULZfrNCrrJ7xDcTjGr633mm
+)
+for playlistId in ${playlistIds[@]}; do
+    yt-dlp -f bestvideo+bestaudio --merge-output-format mp4 -o "%(playlist)s/%(playlist_index)s-%(title)s.%(ext)s" --write-thumbnail --write-auto-sub --embed-subs --embed-metadata --embed-thumbnail "https://www.youtube.com/playlist?list=$playlistId"
+done
+```
 
 ---
 
@@ -58,3 +82,36 @@ bach + mlk # adding Bach and LMK speech
 >   + Multiplied by a number
 >   
 > To create an object of the same kind.
+
+## Geometric Vectors
+
+- A geometric vector is a directed segment.
+- Least abstract objects - since they are drawings.
+- Much of inspiration and intuition in the world of linear algebra comes from geometric vectors.
+
+## Polynomials
+
+- Polynomials are vectors.
+- We can throw in sines, cosines, exponentials too. We can add two functions, and multiply a function by a number.
+- Functions are vectors too!
+- Polynomials is **a vector sub-space** of functions.
+
+- Space of vectors is very useful to physicists.
+- Mathematicians and physicists have a healthy obsession with exact mathemical expressions. They like to capture phenomena in the world with exact mathematical expressions.
+
+## $\mathbb{R}^n$
+
+- $\mathbb{R}^n$ is the set of all n-tuples of real numbers.
+- As abstract as it gets. When in everydya life do we encounter n-tuples of real numbers?
+
+They are very important kinds of vectors:
+1. The algorithms of linear algebra are stated, formulated, explored in $\mathbb{R}^n$.
+2. Computers are particularly helpful if yyou can restate your problem in terms of sets of numbers.
+3. All spaces look like $\mathbb{R}^n$.
+
+By studying $\mathbb{R}^n$, we are studying all other kinds of vector spaces.
+
+---
+
+## Geometric Vectors
+
