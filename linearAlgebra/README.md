@@ -2,6 +2,8 @@
 
 Learning linear Algebra. The plan is to take notes and write sample code in python while learning.
 
+To convert drawings to Latex, use the website [webdemo.myscript.com](https://webdemo.myscript.com/views/math/index.html)
+
 - Encouraged to follow exercises from the website: [https://www.lem.ma/](https://www.lem.ma/)
 - You can also download videos from the [first youtube Playlist](https://www.youtube.com/watch?list=PLlXfTHzgMRUKXD88IdzS14F4NxAZudSmv) to follow offline.
 - [Youtube Channel](https://www.youtube.com/@MathTheBeautiful).
@@ -220,6 +222,144 @@ We've used displacements or relative locations between points as our intuition f
   Hence, **terminology needs to fixed**: we cannot say n-degree polynomials, rather **polynomials upto degree n.**
 
 Similar to how the linear combination of two geometric vectors are stuck in the plane containing the two vectors, the linear combination of two polynomials having a root as K will also have K as a root.
+
+---
+
+## 13. Is one polynomial a multiple of another?
+
+$$
+\begin{align*}
+p(x) &= x + 1 \\
+q(x) &= x^2 + x \\
+\end{align*}
+$$
+
+Is $p(x)$ a multiple of $q(x)$? IIf we are not looking into the vector aspect, then yes. However, when we are considering polynomial as vectors, then only scalar multiples are allowed, we cannot multiply by `x`, which is not a scalar value (number).
+
+---
+
+## 14. $\mathbb{R}^n$ as Vectors
+
+Addition:
+
+$$
+\begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} +
+\begin{bmatrix} -2 \\ 7 \\ -6 \end{bmatrix} =
+\begin{bmatrix} -1 \\ 9 \\ -3 \end{bmatrix}
+$$
+
+Scalar multiplication:
+
+$$
+7 \times \begin{bmatrix} 4 \\ 0 \\ 12 \end{bmatrix} =
+\begin{bmatrix} 28 \\ 0 \\ 84 \end{bmatrix}
+$$
+
+Stuck in a plane:
+- In each of the vectors in LHS, the third entry is 3 times the first entry. By any linear combination (multiplication by a scalar or addition), we will always be stuck with vectors having the same property.
+- By goemetric analogy, this is called a subspace of $\mathbb{R}^3$.
+
+😅 There is no linkage between $\mathbb{R}^3$ and a plane, which is a term from geometry - other than both being vectors.
+
+---
+
+## 15. Linear Combinations
+
+- We have two vectors $\vec{a}$ and $\vec{b}$.
+- We can multiply by different numbers and add them: $\alpha\vec{a} + \beta\vec{b}$. $\alpha$ and $\beta$ are called coefficients of the linear combination.
+- That stuck terminology can be conveniently said: **You are stuck in this plane under linear combinations**.
+
+---
+
+## 16. Examples of Linear Combinations
+
+- For each of the types of vectors (geometric, polynomial, $\mathbb{R}^n$), we can take linear combinations.
+- For polynomials, intriguing question:
+  + $a(x) = x^2 + 1$, $b(x) = 3x^2 - 3x - 6$. For any $\alpha$ and $\beta$, does $c(x) = \alpha a(x) + \beta b(x)$ have the same property that $x = 2$ is a solution?
+  + Is another property $f(2) = 1$ preserved under linear combinations?
+- For matrices, similar questions can be asked:
+  + $a = \begin{bmatrix} 1 \\ 2 \\ 0 \end{bmatrix}$, $b = \begin{bmatrix} -2 \\ 4 \\ 0 \end{bmatrix}$. For any $\alpha$ and $\beta$, does $c = \alpha a + \beta b$ have the same property that $c_3 = 0$, $c_3 = 1$?
+  + $c_3 = -c_1$ -> will this be preserved?
+
+Personal Thought: The 0 values always look to be honoured; so $c_3 = 0$ should preserved in the linear combination of $a$ and $b$. Similarly, the roots of the equation should be preserved. But some property like $f(2) = 1$ or $c_3 = 1$ should not be preserved under every linear combination. <br/>
+Properties like $c_3 = -c_1$ should also be preserved too under linear combination - because the proportion is maintained.
+
+---
+
+## 17. The Zero Vector
+
+The zero vector:
+- Geometric vector: A vector with 0 length, denoted using a dot, with an arrow pointing anywhere : $\vec{\mathbf{0}}$.
+- Polynomial: The zero polynomial. The 0 can be made bold: $\mathbf{0}$.
+- $\mathbb{R}^n$: The vector with all entries as 0: In $\mathbb{R}^3$ it is $\begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}$, also denoted as $\mathbf{0}$.
+
+---
+
+## 18. Span the Man
+
+- The set of all possible linear combinations of a set of vectors is called the span of the set of vectors.
+- Example, $span(a, b) = \{ \alpha a + \beta b ; \alpha, \beta \in \mathbb{R} \}$.
+- The span of a set of vectors is a subspace of the space containing the vectors.
+
+__Question__: Is the span of the vectors $a = \begin{bmatrix} 1 \\ 0 \\ 2 \end{bmatrix}$ and $b = \begin{bmatrix} 7 \\ 0 \\ 15 \end{bmatrix}$ all of $\mathbb{R}^3$, or a proper subspace of $\mathbb{R}^3$?
+
+__Answer__: We can see middle entry is always 0. So, the span of these vectors cannot have any vector with non-zero middle entry. Hence, it is a proper subspace of $\mathbb{R}^3$.
+
+---
+
+## 19. Spanning Sets
+
+A spanning set is a set of vectors whose span is the entire space.
+
+$$
+\begin{aligned}
+a(x) &= 3x^2 + 5x - 8 \\
+b(x) &= -x^2 + 3x - 2
+\end{aligned}
+$$
+
+- Does $a(x)$ and $b(x)$ span all polynomials of degree 2?
+
+  Nopes, because 1 is root of both $a(x)$ and $b(x)$, but some polynomials of degree 2 might not have 1 as root.
+- Does $a(x)$ and $b(x)$ span all polynomials having root 1?
+  We'll need to investigate this.
+
+---
+
+## 20. Linear Subspaces of the Plane
+
+- We go through some examples of sets of vectors, and answer if those sets form the spanning set for the defined space.
+
+---
+
+## 21. An interesting exercise of Linear Combination
+
+Consider, two vectors $\vec{a}$ and $\vec{b}$. We do linear combination, $\alpha\vec{a} + \beta\vec{b}$, with the constraint that $\alpha + \beta = 1$. What is the span of the set of vectors?
+
+- By construction of locus from sample points, we observe that it is the line passing through the tip of the two vectors.
+- Formally, using algebra: $\beta = 1 - \alpha$, so $\alpha\vec{a} + \beta\vec{b} = \alpha\vec{a} + (1 - \alpha)\vec{b} = \vec{b} + \alpha(\vec{a} - \vec{b})$.<br/>
+  This tell us we always start at the tip of $\vec{b}$ and slide along the line connecting the tips of $\vec{a}$ and $\vec{b}$.
+
+---
+
+## 22. Equation of a straight line
+
+![Equation of a straight line](./assets/04_straight_line_quation.svg)
+
+---
+
+## 23. Passionate Appeal - Treat all objects on their own terms.
+
+- Don't intermix the world of geometric vectors with the world of polynomials or $\mathbb{R}^n$.
+
+---
+
+## 24. Summary of terms encountered so far
+
+1. Vector
+2. Linear Combination
+3. Decomposition
+4. Vector space and Linear space -> Closure
 
 ---
 
