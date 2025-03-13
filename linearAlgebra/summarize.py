@@ -24,10 +24,10 @@ VIDEO_EXTENSIONS = {".mp4", ".mkv", ".avi", ".mov", ".flv"}
 REFS_DIR = CURR_DIR / "refs"  # Directory for SRT and markdown reference files
 os.makedirs(REFS_DIR, exist_ok=True)  # Create refs directory if it doesn't exist
 
-def extract_subtitles(video_path):
+def extract_subtitles(video_path: Path, output_path: Path):
     """Extract subtitles from video file or generate them using Whisper."""
     video_filename = Path(video_path).stem
-    srt_file = REFS_DIR / f"{video_filename}.srt"
+    srt_file = output_path / f"{video_filename}.srt"
     
     # Try extracting embedded subtitles with -y flag to avoid prompts
     cmd = ["ffmpeg", "-y", "-i", video_path, "-map", "0:s:0", str(srt_file)]
@@ -39,7 +39,7 @@ def extract_subtitles(video_path):
     
     # Generate subtitles using Whisper, preventing interactive prompts
     print(f"No subtitles found, transcribing using Whisper: {video_path}")
-    whisper_cmd = ["whisper", video_path, "--model", "small", "--output_format", "srt", "--output_dir", str(REFS_DIR)]
+    whisper_cmd = ["whisper", video_path, "--model", "small", "--language", "en", "--output_format", "srt", "--output_dir", str(output_path)]
     subprocess.run(whisper_cmd, stdin=subprocess.DEVNULL)
     
     # Check if the file was created with the correct name
@@ -48,7 +48,7 @@ def extract_subtitles(video_path):
         return srt_file
     
     # Whisper might have used a different naming convention, try to find it
-    potential_srt = list(REFS_DIR.glob(f"{video_filename}*.srt"))
+    potential_srt = list(output_path.glob(f"{video_filename}*.srt"))
     if potential_srt:
         print(f"Generated subtitles: {potential_srt[0]}")
         return potential_srt[0]
@@ -122,7 +122,7 @@ def process_video_files():
                     print(f"Markdown file already exists: {ref_md_filename}, skipping...")
                     continue
                     
-                srt_path = extract_subtitles(file)
+                srt_path = extract_subtitles(file, outDir)
                 if not srt_path:
                     continue
                 

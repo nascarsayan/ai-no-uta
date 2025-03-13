@@ -363,13 +363,13 @@ Consider, two vectors $\vec{a}$ and $\vec{b}$. We do linear combination, $\alpha
 
 ---
 
-# 29. Decomposition
+## 29. Decomposition
 
 ![decomposition](./assets/05_decompose_1.svg)
 
 ---
 
-# 30. Decomposition wrt arbitrary vectors
+## 30. Decomposition wrt arbitrary vectors
 
 ![general decomposition](./assets/06_generic_decomposition.png)
 
@@ -379,3 +379,92 @@ Consider, two vectors $\vec{a}$ and $\vec{b}$. We do linear combination, $\alpha
 
 ---
 
+## 32. Decomposition with polynomials 2
+
+$$
+p_1(x) = 1, p_2(x) = x + 2, p_3(x) = x^2 + x - 3
+$$
+
+$$
+x^2 + 7x + 5 = \alpha _1 p_1(x) + \beta _1 p_2(x) + \gamma _1 p_3(x) \\
+x^2 - 7x = \alpha _2 p_1(x) + \beta _2 p_2(x) + \gamma _2 p_3(x)
+$$
+
+![Decompose Polynomial](./assets/07_decompose_polynomial.svg)
+
+---
+
+## 33. Decomposition with $\mathbb{R}^n$
+
+Let:
+
+$$
+a = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}, \quad
+b = \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}, \quad
+c = \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}
+$$
+
+We have:
+
+$$
+\begin{bmatrix} 3 \\ 5 \\ 6 \end{bmatrix}
+= 3a + 5b + 6c
+$$
+
+$$
+\begin{bmatrix} 8 \\ -11 \\ 17 \end{bmatrix}
+= 8 a + (-11) b + 17 c
+$$
+
+---
+
+## 35. Decomposition with $\mathbb{R}^n$ 3
+
+Let:
+
+$$
+a = \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}, \quad
+b = \begin{bmatrix} 0 \\ 1 \\ -1 \end{bmatrix}, \quad
+c = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}
+$$
+
+We have:
+
+$$
+\begin{bmatrix} 3 \\ 5 \\ 6 \end{bmatrix}
+= \_ a + \_ b + \_ c
+$$
+
+$$
+\begin{bmatrix} 8 \\ -11 \\ 17 \end{bmatrix}
+= \_ a + \_ b + \_ c
+$$
+
+---
+
+## 36. Linear Systems are a Decomposition Problem
+
+The system of equations:
+
+$$
+x + 2y + 3z + 3t = 12
+$$
+
+$$
+4x + 5y + 6z + 3t = 45
+$$
+
+$$
+7x + 8y + 9z + 3t = 78
+$$
+
+can be written in matrix form as:
+
+$$
+\begin{bmatrix} 12 \\ 45 \\ 78 \end{bmatrix}
+=
+x \begin{bmatrix} 1 \\ 4 \\ 7 \end{bmatrix}
++ y \begin{bmatrix} 2 \\ 5 \\ 8 \end{bmatrix}
++ z \begin{bmatrix} 3 \\ 6 \\ 9 \end{bmatrix}
++ t \begin{bmatrix} 3 \\ 3 \\ 3 \end{bmatrix}
+$$
