@@ -363,3 +363,19 @@ Consider, two vectors $\vec{a}$ and $\vec{b}$. We do linear combination, $\alpha
 
 ---
 
+# 29. Decomposition
+
+![decomposition](./assets/05_decompose_1.svg)
+
+---
+
+# 30. Decomposition wrt arbitrary vectors
+
+![general decomposition](./assets/06_generic_decomposition.png)
+
+- This looks like a skewed cartesian coordinate system. It's called __Affine grid__.
+
+[chatgpt conversation](https://chatgpt.com/share/67d2a5c8-61cc-8009-979a-53f96dc1b353)
+
+---
+

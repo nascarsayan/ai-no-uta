@@ -11,13 +11,15 @@ url = "https://download.pytorch.org/whl/cpu"
 priority = "explicit"
 
 [tool.poetry.dependencies]
-python = ">=3.13"
-numpy = "^2.2.3"
+python = "^3.12"
+numpy = "^2.1"
 pandas = "^2.2.3"
 matplotlib = "^3.10.1"
 # torch = {version = "^2.6.0", source = "pytorch"}
 # torchvision = {version = "^0.21.0", source = "pytorch"}
 # torchaudio = {version = "^2.6.0", source = "pytorch"}
+pyyaml = "^6.0.2"
+openai = "^1.66.3"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.5"

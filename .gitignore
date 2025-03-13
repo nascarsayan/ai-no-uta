@@ -117,3 +117,6 @@ dmypy.json
 
 # Reference Materials
 nn-zero-to-hero/
+
+config.yaml
+*.srt
