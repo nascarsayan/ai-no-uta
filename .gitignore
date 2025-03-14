@@ -120,3 +120,6 @@ nn-zero-to-hero/
 
 config.yaml
 *.srt
+
+.DS_Store
+Thumbs.db

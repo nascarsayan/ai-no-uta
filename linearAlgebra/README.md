@@ -278,8 +278,13 @@ Stuck in a plane:
   + $a(x) = x^2 + 1$, $b(x) = 3x^2 - 3x - 6$. For any $\alpha$ and $\beta$, does $c(x) = \alpha a(x) + \beta b(x)$ have the same property that $x = 2$ is a solution?
   + Is another property $f(2) = 1$ preserved under linear combinations?
 - For matrices, similar questions can be asked:
-  + $a = \begin{bmatrix} 1 \\\ 2 \\\ 0 \end{bmatrix}$, $b = \begin{bmatrix} -2 \\\ 4 \\\ 0 \end{bmatrix}$. For any $\alpha$ and $\beta$, does $c = \alpha a + \beta b$ have the same property that $c_3 = 0$, $c_3 = 1$?
+  + Given matrices $a$ and $b$, , does $c = \alpha a + \beta b$ have the same property that $c_3 = 0$ or the property $c_3 = 1$?
   + $c_3 = -c_1$ -> will this be preserved?
+
+$$
+a = \begin{bmatrix} 1 \\\ 2 \\\ 0 \end{bmatrix}, \quad
+b = \begin{bmatrix} -2 \\\ 4 \\\ 0 \end{bmatrix}
+$$
 
 Personal Thought: The 0 values always look to be honoured; so $c_3 = 0$ should preserved in the linear combination of $a$ and $b$. Similarly, the roots of the equation should be preserved. But some property like $f(2) = 1$ or $c_3 = 1$ should not be preserved under every linear combination. <br/>
 Properties like $c_3 = -c_1$ should also be preserved too under linear combination - because the proportion is maintained.
@@ -533,9 +538,339 @@ $$
 
 The properties which we identified remain preserved under addition and scalar multiplication - you can try out a few examples to verify this.
 
+---
+
+## 40. What is a Linear Property and Why it is Synonymous with Subspaces
+
 __Linear property is synonymous with the noun subspace.__
 
 A __subspace__ is a subset of a vector space that is a vector space in its own right. In other words, a subspace is a subset of a vector space that is closed under linear combination.
 
 ---
 
+## 41. A property Irrelevant to Linear Combinations
+
+Some properties are irrelevant to linear combinations. For example:
+- divisible by 2, 3 or any number
+- some value is constant (not equal to 0).
+
+These properties are not linear properties because they are not preserved under linear combinations.
+
+---
+
+## 42. Linear Subspaces in $\mathbb{R}^n$
+
+$$
+\begin{bmatrix} 1 \\\ 0 \\\ 2 \end{bmatrix} \quad
+\begin{bmatrix} -7 \\\ 0 \\\ 5 \end{bmatrix} \quad
+\begin{bmatrix} 4 \\\ 0 \\\ 11 \end{bmatrix}
+$$
+
+$$
+\begin{bmatrix} 3 \\\ 15 \\\ 7 \end{bmatrix} \quad
+\begin{bmatrix} -4 \\\ -20 \\\ 3 \end{bmatrix} \quad
+\begin{bmatrix} 1 \\\ 5 \\\ 17 \end{bmatrix}
+$$
+
+$$
+\begin{bmatrix} 1 \\\ 2 \\\ 3  \end{bmatrix} \quad
+\begin{bmatrix} 4 \\\ 5 \\\ 6 \end{bmatrix} \quad
+\begin{bmatrix} 7 \\\ 8 \\\ 9 \end{bmatrix}
+$$
+
+If the vector entries are named as following:
+
+$$
+\begin{bmatrix} a \\\ b \\\ c \end{bmatrix}
+$$
+
+Then, the algebraic expression corresponding to the properties of the vectors are:
+1. $b = 0$
+2. $b = 5a$
+3. $b = \frac{a + c}{2}$
+
+Or, equivalently:
+1. $b = 0$
+2. $5a - b = 0$
+3. $a - 2b + c = 0$
+
+These algebraic expressions all follow the same template: __A linear combination of the coefficients of the entries of the vectors = 0.__
+
+__Any subspace can be characterized by just a triplet of coefficients.__
+
+1. $(0, 1, 0)$ - The subspace of vectors with second entry 0.
+2. $(5, -1, 0)$ - The subspace of vectors with second entry 5 times the first entry.
+3. $(1, -2, 1)$ - The subspace of vectors with second entry being the average of the first and third entry.
+
+__This is exactly the requirement for linear properties. Any characteristic that cannot be written down in this format is not a linear property.__
+
+$$
+\begin{bmatrix} 1 \\\ 0 \\\ 3 \end{bmatrix} \quad
+\begin{bmatrix} -7 \\\ 0 \\\ -21 \end{bmatrix} \quad
+\begin{bmatrix} 4 \\\ 0 \\\ 12 \end{bmatrix}
+$$
+
+$$
+\begin{cases}b=0\\ 3a-c=0\end{cases}
+$$
+
+---
+
+## 43. Linear Subspaces of Polynomials
+
+$$
+\begin{aligned}
+f(1) =0 \\
+\int^{1}_{0} f(x) dx=0 \\
+3f''(x) -f'(x) =0
+\end{aligned}
+$$
+
+---
+
+$$
+\begin{aligned}
+f_{c}(x) =f_{1}(x) +f_{2}(x) \\
+f_{1}(1) =0;\quad f_{2}(1) =0 \\
+f_{c}(1) =f_{1}(1) +f_{2}(1) =0
+\end{aligned}
+$$
+
+---
+
+$$
+\begin{aligned}
+\int_0^1 f_c(x) d x & =\int_0^1\left(f_1(x)+f_2(x)\right) d x \\
+& =\int_0^1 f_1(x) d x+\int_0^1 f_2(x) d x \\
+& =0
+\end{aligned}
+$$
+
+---
+
+$$
+\begin{aligned} &
+3 f_c^{\prime \prime}(x)-f_c^{\prime}(x) \\
+= & 3(f_1(x)+f_2(x))^{\prime \prime}-(f_1(x)+f_2(x))^{\prime} \\
+= & 3 f_1^{\prime \prime}(x)+3 f_2^{\prime \prime}(x)-f_1^{\prime}(x)+f_2^{\prime}(x) \\
+= & (3 f_1^{\prime \prime}(x)-f_1^{\prime}(x))+(3 f_2^{\prime \prime}(x)-f_2^{\prime}(x)) \\
+= & 0
+\end{aligned}
+$$
+
+---
+
+If we take $f(x)=a x^{2}+b x+c$, then, these are the conditions:
+
+---
+
+$$
+\begin{aligned}
+& f(1)=0 \\
+\Rightarrow & a+b+c=0
+\end{aligned}
+$$
+
+---
+
+$$
+\begin{aligned}
+& \int_0^1 f(x) d x=0 \\
+\Rightarrow & \int_0^1\left(a x^2+b x+c\right) d x=0 \\
+\Rightarrow & {\left[\frac{a x^3}{3}+\frac{b x^2}{2}+c x\right]_0^1=0 } \\
+\Rightarrow & \frac{a}{3}+\frac{b}{2}+c=0
+\end{aligned}
+$$
+
+---
+
+$$
+\begin{aligned}
+& 3 f^{\prime \prime}(x)-f^{\prime}(x)=0 \\
+\Rightarrow & 3(2 a)-(2 a x+b)=0 \\
+\Rightarrow & (6 a-b)-2 a x=0 \\
+\end{aligned}
+$$
+
+In order for the polynomial to satisfy this property, $(6a-b)-2ax$ must vanish identically. Hence each coefficient must vanish:
+
+$$
+\begin{aligned}
+\begin{cases}
+6a - b = 0 \\
+2a = 0
+\end{cases}
+\end{aligned}
+$$
+
+---
+
+## 44. A good way to express linear subspaces in $\mathbb{R}^n$
+
+- Use new variables for every independent value
+- Use constants for every constant value (mostly 0)
+- Use existing variables for any dependent value
+
+Examples for the following statements:
+1. $b = 0$
+2. $5a - b = 0$
+3. $a - 2b + c = 0$
+4. $b = 0, c - 3a = 0$
+
+
+$$
+\begin{bmatrix} \alpha \\\ 0 \\\ \beta \end{bmatrix}, \quad
+\begin{bmatrix} \alpha \\\ 5 \alpha \\\ \beta \end{bmatrix}, \quad
+\begin{bmatrix} \alpha \\\ \frac{\alpha+\beta}{2} \\\ \beta \end{bmatrix}, \quad
+\begin{bmatrix} \alpha \\\ 0 \\\ 3 \alpha \end{bmatrix}
+$$
+
+---
+
+## 45. Unions and Intersections of Subspaces
+
+- Union of two subspaces is not a subspace.
+- Intersection of two subspaces is a subspace.
+
+Why union is not (necessarily) a subspace?
+
+Let's take two subspaces, $S_1$ and $S_2$. Let $v_1$ and $v_2$ be vectors in $ S_1 \setminus S_2$ and $S_2 \setminus S_1$ respectively. Then, $v_1 + v_2$ is not in either $S_1$ or $S_2$.
+
+In some trivial case, when one subspace is a subset of another, then the union is a subspace.
+
+Why intersection is a subspace?
+
+Let $v_1$ and $v_2$ be vectors, both of them in $S1 \cap S2$. Then, $v_1 + v_2$ is in:
+- $S1$, because $v_1$ and $v_2$ are in $S1$, and $S1$ is a subspace.
+- $S2$, because $v_1$ and $v_2$ are in $S2$, and $S2$ is a subspace.
+
+Hence, $v_1 + v_2$ is in $S1 \cap S2$.
+
+Multiplication by a scalar is also preserved in the intersection in similar argument.
+
+A linear dependency we'd discussed earlier can also be be thought as an intersection of two subspaces:
+
+$$
+\begin{aligned}
+\begin{cases}
+b = 0 \\
+3a - c = 0
+\end{cases}
+\end{aligned}
+$$
+
+can be written as:
+
+$$
+\begin{bmatrix} \alpha \\\ 0 \\\ 3 \alpha \end{bmatrix} =
+\begin{bmatrix} \alpha _1 \\\ 0 \\\ \beta _1 \end{bmatrix} \cap
+\begin{bmatrix} \alpha _2 \\\ \beta _2 \\\ 3 \alpha _2 \end{bmatrix}
+$$
+
+---
+
+## 46. Linear Independence
+
+![Multiple Decomposition](./assets/08_multiple_decomposition.svg)
+
+$$
+\begin{aligned}
+\vec{d} &= 2\vec{a} &+ 1\vec{b} &+ 0\vec{c}\\
+     &= 1\vec{a} &+ 0\vec{b} &+ 1\vec{c}\\
+     &= 0\vec{a} &+ (-1)\vec{b} &+ 2\vec{c}\\
+     &= \ldots\\
+\end{aligned}
+$$
+
+This is because there is a linear dependency between the vectors $\vec{a}$, $\vec{b}$, and $\vec{c}$: $\vec{c} = \vec{a} + \vec{b}$.
+
+> [!NOTE]
+> A set of vectors is __linearly dependent__ if __at least__ one of the vectors is a linear combination of the rest.
+
+> [!NOTE]
+> A set of vectors is __linearly independent__ if __none__ of the vectors is a linear combination of the rest.
+
+---
+
+## 47-48. Alternative definition of Linear Independence
+
+$$
+\begin{aligned}
+\vec{d} &= 2\vec{a} + 1\vec{b} + 0\vec{c}\\
+        &= (2+\alpha)\vec{a} + (1+\alpha)\vec{b} - \alpha \vec{c}\\
+        &= 2\vec{a} + \vec{b} + \alpha(\vec{a}+\vec{b}-\vec{c})
+\end{aligned}
+$$
+
+$(\vec{a}+\vec{b}-\vec{c})$ is not a useless 0, but a fancy $\vec{0}$.
+
+> Fancy Zero 😝:
+> 
+> Adding any propotion of the fancy 0 does not change the value of the expression, but the appearance of the expression itself.
+
+Hence, alternative definition:
+
+> [!NOTE]
+> A set of vectors is __linearly dependent__ if there __exists__ a __non-trivial__ linear combination that equals zero.
+
+> [!NOTE]
+> A trivial linear combination is one where all coefficients are zero. A non-trivial linear combination is one where at least one coefficient is non-zero.
+
+---
+
+## 49. The Equivalence of the Two Definitions of Linear Independence
+
+Let the vectors be linearly dependenct by the first definition.
+
+$$
+\begin{aligned}
+\vec{a} &= \beta \vec{b} + \gamma \vec {c} + \delta \vec{d} \\
+\implies 0 &= \beta \vec{b} + \gamma \vec{c} + \delta \vec{d} - \vec{a}
+\end{aligned}
+$$
+
+Even if all of $\beta$, $\gamma$, and $\delta$ are zero, since the coefficient of $\vec{a}$ is $-1$, hence the linear combination is non-trivial.
+
+---
+
+Let the vectors be linearly independent by the second definition. In the non-trivial linear combination, let $\gamma \neq 0$.
+
+$$
+\begin{aligned}
+0 &= \alpha \vec{a} + \beta \vec{b} + \gamma \vec{c} + \delta \vec{d} \\
+\implies \vec{c} &= -\frac{\alpha}{\gamma} \vec{a} - \frac{\beta}{\gamma} \vec{b} - \frac{\delta}{\gamma} \vec{d}
+\end{aligned}
+$$
+
+Since $\gamma$ is non-zero, we can divide the whole equation by it, and hence the vectors are linearly dependent by the first definition.
+
+---
+
+## 50. Linear Independence Implies Uniqueness
+
+We are going to prove that if the decomposition vectors are linearly independent, then the decomposition is unique.
+
+We'll prove this by contradiction. Let's assume that the decomposition is not unique. Then, there are two different decompositions, where not all of the coefficients are equal to each other.
+
+The condition of the coefficients formally:
+
+$$
+\neg\left(\alpha_1=\alpha_2 \quad \wedge\quad \beta_1=\beta_2 \quad \wedge\quad \gamma_1=\gamma_2\right).
+$$
+which is equivalent to writing:
+$$
+(\alpha_1-\alpha_2,\;\beta_1-\beta_2,\;\gamma_1-\gamma_2) \neq (0,0,0)
+$$
+
+The two decompositions can be written as:
+
+$$
+\begin{aligned}
+\alpha_1 \vec{a} + \beta_1 \vec{b} + \gamma_1 \vec{c} &= \vec{d}, \\
+\alpha_2 \vec{a} + \beta_2 \vec{b} + \gamma_2 \vec{c} &= \vec{d}, \\
+\text{Subtracting the second equation from the first:} \quad & \quad \\
+(\alpha_1 - \alpha_2) \vec{a} + (\beta_1 - \beta_2) \vec{b} + (\gamma_1 - \gamma_2) \vec{c} &= \vec{0}.
+\end{aligned}
+$$
+
+This is a non-trivial linear combination of the vectors that equals zero, which contradicts the linear independence of the vectors.
