@@ -243,16 +243,16 @@ Is $p(x)$ a multiple of $q(x)$? IIf we are not looking into the vector aspect, t
 Addition:
 
 $$
-\begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} +
-\begin{bmatrix} -2 \\ 7 \\ -6 \end{bmatrix} =
-\begin{bmatrix} -1 \\ 9 \\ -3 \end{bmatrix}
+\begin{bmatrix} 1 \\\ 2 \\\ 3 \end{bmatrix} +
+\begin{bmatrix} -2 \\\ 7 \\\ -6 \end{bmatrix} =
+\begin{bmatrix} -1 \\\ 9 \\\ -3 \end{bmatrix}
 $$
 
 Scalar multiplication:
 
 $$
-7 \times \begin{bmatrix} 4 \\ 0 \\ 12 \end{bmatrix} =
-\begin{bmatrix} 28 \\ 0 \\ 84 \end{bmatrix}
+7 \times \begin{bmatrix} 4 \\\ 0 \\\ 12 \end{bmatrix} =
+\begin{bmatrix} 28 \\\ 0 \\\ 84 \end{bmatrix}
 $$
 
 Stuck in a plane:
@@ -278,7 +278,7 @@ Stuck in a plane:
   + $a(x) = x^2 + 1$, $b(x) = 3x^2 - 3x - 6$. For any $\alpha$ and $\beta$, does $c(x) = \alpha a(x) + \beta b(x)$ have the same property that $x = 2$ is a solution?
   + Is another property $f(2) = 1$ preserved under linear combinations?
 - For matrices, similar questions can be asked:
-  + $a = \begin{bmatrix} 1 \\ 2 \\ 0 \end{bmatrix}$, $b = \begin{bmatrix} -2 \\ 4 \\ 0 \end{bmatrix}$. For any $\alpha$ and $\beta$, does $c = \alpha a + \beta b$ have the same property that $c_3 = 0$, $c_3 = 1$?
+  + $a = \begin{bmatrix} 1 \\\ 2 \\\ 0 \end{bmatrix}$, $b = \begin{bmatrix} -2 \\\ 4 \\\ 0 \end{bmatrix}$. For any $\alpha$ and $\beta$, does $c = \alpha a + \beta b$ have the same property that $c_3 = 0$, $c_3 = 1$?
   + $c_3 = -c_1$ -> will this be preserved?
 
 Personal Thought: The 0 values always look to be honoured; so $c_3 = 0$ should preserved in the linear combination of $a$ and $b$. Similarly, the roots of the equation should be preserved. But some property like $f(2) = 1$ or $c_3 = 1$ should not be preserved under every linear combination. <br/>
@@ -291,7 +291,10 @@ Properties like $c_3 = -c_1$ should also be preserved too under linear combinati
 The zero vector:
 - Geometric vector: A vector with 0 length, denoted using a dot, with an arrow pointing anywhere : $\vec{\mathbf{0}}$.
 - Polynomial: The zero polynomial. The 0 can be made bold: $\mathbf{0}$.
-- $\mathbb{R}^n$: The vector with all entries as 0: In $\mathbb{R}^3$ it is $\begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}$, also denoted as $\mathbf{0}$.
+- $\mathbb{R}^n$: The vector with all entries as 0: In $\mathbb{R}^3$ it is the below matrix, also denoted as $\mathbf{0}$.
+
+$$\begin{bmatrix} 0 \\\ 0 \\\ 0 \end{bmatrix}$$
+
 
 ---
 
@@ -301,7 +304,12 @@ The zero vector:
 - Example, $span(a, b) = \{ \alpha a + \beta b ; \alpha, \beta \in \mathbb{R} \}$.
 - The span of a set of vectors is a subspace of the space containing the vectors.
 
-__Question__: Is the span of the vectors $a = \begin{bmatrix} 1 \\ 0 \\ 2 \end{bmatrix}$ and $b = \begin{bmatrix} 7 \\ 0 \\ 15 \end{bmatrix}$ all of $\mathbb{R}^3$, or a proper subspace of $\mathbb{R}^3$?
+__Question__: Is the span of the vectors $a$ and $b$ all of $\mathbb{R}^3$, or a proper subspace of $\mathbb{R}^3$? 
+
+$$
+a = \begin{bmatrix} 1 \\\ 0 \\\ 2 \end{bmatrix}, \quad
+b = \begin{bmatrix} 7 \\\ 0 \\\ 15 \end{bmatrix}
+$$
 
 __Answer__: We can see middle entry is always 0. So, the span of these vectors cannot have any vector with non-zero middle entry. Hence, it is a proper subspace of $\mathbb{R}^3$.
 
@@ -399,20 +407,20 @@ $$
 Let:
 
 $$
-a = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}, \quad
-b = \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}, \quad
-c = \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}
+a = \begin{bmatrix} 1 \\\ 0 \\\ 0 \end{bmatrix}, \quad
+b = \begin{bmatrix} 0 \\\ 1 \\\ 0 \end{bmatrix}, \quad
+c = \begin{bmatrix} 0 \\\ 0 \\\ 1 \end{bmatrix}
 $$
 
 We have:
 
 $$
-\begin{bmatrix} 3 \\ 5 \\ 6 \end{bmatrix}
+\begin{bmatrix} 3 \\\ 5 \\\ 6 \end{bmatrix}
 = 3a + 5b + 6c
 $$
 
 $$
-\begin{bmatrix} 8 \\ -11 \\ 17 \end{bmatrix}
+\begin{bmatrix} 8 \\\ -11 \\\ 17 \end{bmatrix}
 = 8 a + (-11) b + 17 c
 $$
 
@@ -423,21 +431,21 @@ $$
 Let:
 
 $$
-a = \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}, \quad
-b = \begin{bmatrix} 0 \\ 1 \\ -1 \end{bmatrix}, \quad
-c = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}
+a = \begin{bmatrix} 0 \\\ 0 \\\ 1 \end{bmatrix}, \quad
+b = \begin{bmatrix} 0 \\\ 1 \\\ -1 \end{bmatrix}, \quad
+c = \begin{bmatrix} 1 \\\ 2 \\\ 3 \end{bmatrix}
 $$
 
 We have:
 
 $$
-\begin{bmatrix} 3 \\ 5 \\ 6 \end{bmatrix}
-= \_ a + \_ b + \_ c
+\begin{bmatrix} 3 \\\ 5 \\\ 6 \end{bmatrix}
+= \rule{1em}{0.8pt} a + \rule{1em}{0.8pt} b + \rule{1em}{0.8pt} c
 $$
 
 $$
-\begin{bmatrix} 8 \\ -11 \\ 17 \end{bmatrix}
-= \_ a + \_ b + \_ c
+\begin{bmatrix} 8 \\\ -11 \\\ 17 \end{bmatrix}
+= \rule{1em}{0.8pt} a + \rule{1em}{0.8pt} b + \rule{1em}{0.8pt} c
 $$
 
 ---
@@ -461,10 +469,73 @@ $$
 can be written in matrix form as:
 
 $$
-\begin{bmatrix} 12 \\ 45 \\ 78 \end{bmatrix}
-=
-x \begin{bmatrix} 1 \\ 4 \\ 7 \end{bmatrix}
-+ y \begin{bmatrix} 2 \\ 5 \\ 8 \end{bmatrix}
-+ z \begin{bmatrix} 3 \\ 6 \\ 9 \end{bmatrix}
-+ t \begin{bmatrix} 3 \\ 3 \\ 3 \end{bmatrix}
+\begin{bmatrix} 12 \\\ 45 \\\ 78 \end{bmatrix} =
+x \begin{bmatrix} 1 \\\ 4 \\\ 7 \end{bmatrix} +
+y \begin{bmatrix} 2 \\\ 5 \\\ 8 \end{bmatrix} +
+z \begin{bmatrix} 3 \\\ 6 \\\ 9 \end{bmatrix} +
+t \begin{bmatrix} 3 \\\ 3 \\\ 3 \end{bmatrix}
 $$
+
+---
+
+## 37. Impossible Decomposition
+
+Wordings:
+
+- The decomposition problem does not have a solution if the target vector does not lie in the subspace spanned by the decomposition vectors.
+- The decomposition problem does not have a solution if the target vector is not within the span of the decomposition vectors.
+
+---
+
+## 38. Impossible Decomposition with Polynomials
+
+The given equations are:
+
+$$
+X^2 + 1 = \rule{1em}{0.8pt} (X^2 + X) + \rule{1em}{0.8pt} (3X^2 - 11X) + \rule{1em}{0.8pt} (7X^2 - X)
+$$
+
+$$
+X^2 + 1 = \rule{1em}{0.8pt} (X - 1) + \rule{1em}{0.8pt} (X^2 - 1) + \rule{1em}{0.8pt} (X^2 - 2X + 1)
+$$
+
+$$
+X^2 + 1 = \rule{1em}{0.8pt} (X^2 - 4) + \rule{1em}{0.8pt} (3X - 6) + \rule{1em}{0.8pt} (X^2 - 4X + 4)
+$$
+
+1. RHS in the first equation does not have any polynomial with constant terms, so we can't get constant in LHS.
+2. RHS in the second equation have all polynomials having coefficients adding up to 0 (i.e., 1 is a root). But the polynomial in LHS does not have 1 as a root.
+3. RHS in the third equation have 2 as a root, but the polynomial in LHS does not have 2 as a root.
+
+Thus, the polynomial in LHS is not in the subspace of the polynomials spanned by the decomposition polynomials / vectors.
+
+---
+
+## 39. Impossible Decomposition in $\mathbb{R}^n$
+
+The given vector equations are:
+
+$$
+\begin{bmatrix} 3 \\\ 4 \\\ 7 \end{bmatrix} = \rule{1em}{0.8pt} \begin{bmatrix} 1 \\\ 0 \\\ 2 \end{bmatrix} + \rule{1em}{0.8pt} \begin{bmatrix} -7 \\\ 0 \\\ 5 \end{bmatrix} + \rule{1em}{0.8pt} \begin{bmatrix} 4 \\\ 0 \\\ 11 \end{bmatrix}
+$$
+
+$$
+\begin{bmatrix} 3 \\\ 4 \\\ 7 \end{bmatrix} = \rule{1em}{0.8pt} \begin{bmatrix} 3 \\\ 15 \\\ 7 \end{bmatrix} + \rule{1em}{0.8pt} \begin{bmatrix} -4 \\\ -20 \\\ 3 \end{bmatrix} + \rule{1em}{0.8pt} \begin{bmatrix} 1 \\\ 5 \\\ 17 \end{bmatrix}
+$$
+
+$$
+\begin{bmatrix} 3 \\\ 4 \\\ 7 \end{bmatrix} = \rule{1em}{0.8pt} \begin{bmatrix} 1 \\\ 2 \\\ 3 \end{bmatrix} + \rule{1em}{0.8pt} \begin{bmatrix} 4 \\\ 5 \\\ 6 \end{bmatrix} + \rule{1em}{0.8pt} \begin{bmatrix} 7 \\\ 8 \\\ 9 \end{bmatrix}
+$$
+
+1. Second entry cannot be made non-zero by a linear combination of the given vectors.
+2. Second entry is 5 times first entry in all the decomposition vectors, but the target vector does not have this property.
+3. Second entry is average of first and third entry in all the decomposition vectors, but the target vector does not have this property.
+
+The properties which we identified remain preserved under addition and scalar multiplication - you can try out a few examples to verify this.
+
+__Linear property is synonymous with the noun subspace.__
+
+A __subspace__ is a subset of a vector space that is a vector space in its own right. In other words, a subspace is a subset of a vector space that is closed under linear combination.
+
+---
+
