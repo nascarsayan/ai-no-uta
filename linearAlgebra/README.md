@@ -1150,3 +1150,152 @@ $$
 
 ---
 
+## 64. Counting Solutions of a Linear System
+
+The probability that 2 vectors in 2D space chosen at random are linearly independent is 1.
+Similarly, the probability that 3 vectors in 3D space chosen at random are linearly independent is 1.
+
+This is analogous to throwing a geometric vector in the space, let it spin in the air, and then catching it. The probability that 3 of them point to different directions is 1.
+
+So, given 4 random vectors in $\mathbb{R}^3$ and a target vector, there is most likely infinitely many solutions.
+
+### Conclusion
+
+There are 3 possibilities:
+1. No solution, when the target vector is not within the span of the decomposition vectors
+2. Single solution, when the target vector is within the span of the decomposition vectors, and the decomposition vectors are linearly independent.
+3. Infinitely many solutions, when the target vector is within the span of the decomposition vectors, and the decomposition vectors are linearly dependent.
+
+A unique solution is not possible when there are fewer equations than the number of unknowns.
+
+When there is a unique solution for the system of equations, that system is called a __square system.__
+
+---
+
+## 65. Null Space of a Matrix
+
+![decompose 4](./assets/12_decompose_4.svg)
+
+$$
+\mathbf{N} =
+\alpha
+\begin{bmatrix}
+1 \\\ -1 \\\ 1 \\\ 0
+\end{bmatrix} +
+\beta
+\begin{bmatrix}
+1 \\\ 0 \\\ -1 \\\ 1
+\end{bmatrix}
+$$
+
+Each of the 4 vectors above, $\vec{a}$, $\vec{b}$, $\vec{c}$, and $\vec{d}$, can be associated as columns of a matrix. The row-size is the dimention of the vectors, and the columns are each of the vectors.
+
+Sample matrix consisting of 4 vectors in $\mathbb{R}^4$ :
+
+$$
+\begin{bmatrix}
+2 & 12 & 10 & 8 \\
+3 & 13 & 10 & 7 \\
+4 & 14 & 10 & 6 \\
+7 & 17 & 10 & 3
+\end{bmatrix}
+$$
+
+We can try to check for relationships between each of the 4 vectors, i.e., the columns of the matrix, $C_1$, $C_2$, $C_3$, and $C_4$:
+
+1. $C_2 = C_1 + C_3$
+2. $C_4 = C_3 - C_1$
+
+OR
+
+$$
+\begin{aligned}
+C_1 &- C_2 &+ C_3 &&= \vec{0} \\
+C_1 &&- C_3 &+ C_4 &= \vec{0}
+\end{aligned}
+$$
+
+Hence, the null space of the matrix is similar to the null space of the geometric vectors above.
+
+$$
+\mathbf{N} =
+\alpha
+\begin{bmatrix}
+1 \\\ -1 \\\ 1 \\\ 0
+\end{bmatrix} +
+\beta
+\begin{bmatrix}
+1 \\\ 0 \\\ -1 \\\ 1
+\end{bmatrix}
+$$
+
+---
+
+## 67. The Null Space of $3 \times 3$ Matrix with a Specific Pattern
+
+![Linear Depdency Subproblem](./assets/13_linear_dep_matrix_subproblem.svg)
+
+When we have a vector $[1, 0, 0]$ as a column of the matrix, the problem reduces to finding the dependency of the remaining 2 sub-columns of the matrix.
+
+$$
+\begin{bmatrix}
+1 & 2 & 3 \\
+0 & 1 & 3 \\
+0 & 2 & 6
+\end{bmatrix}
+$$
+
+For the given matrix, we see that the $2 \times 2$ sub-matrix has the relation $C_3 = 3C_2$. Hence, $3C_2 - C_3 = 0$. Next, row 1 is to the rescue to make it 0. $(3C_2 - C_3) - 3C_1 = 0$.
+
+Hence, the null space is:
+
+$$
+\begin{aligned}
+\mathbf{N} &=
+\alpha
+\begin{bmatrix}
+-3 \\\ 3 \\\ 1
+\end{bmatrix}
+\end{aligned}
+$$
+
+Another example:
+
+$$
+\begin{bmatrix}
+12 & 3 & 5 \\
+0 & 2 & 7 \\
+0 & 6 & 21
+\end{bmatrix}
+$$
+
+$$
+\begin{aligned}
+\mathbf{N} &=
+\alpha
+\begin{bmatrix}
+-11/12 \\\ 7 \\\ -2
+\end{bmatrix}
+\end{aligned}
+$$
+
+OR
+
+$$
+\begin{aligned}
+\mathbf{N} &=
+\alpha
+\begin{bmatrix}
+11 \\\ -84 \\\ 24
+\end{bmatrix}
+\end{aligned}
+$$
+
+---
+
+The pattern might appear in a different form too, instead of $[1, 0, 0]$, it might be $[0, 1, 0]$ or $[0, 0, 1]$, and can appear in any column. But the approach will be similar, to construct that sub-matrix.
+
+![Linear Depdency Subproblem](./assets/14_dep_subproblem_pattern_2.svg)
+
+---
+
