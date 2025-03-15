@@ -874,3 +874,279 @@ $$
 $$
 
 This is a non-trivial linear combination of the vectors that equals zero, which contradicts the linear independence of the vectors.
+
+---
+
+## 51. Linear Dependence Example 1 - Geometric Vectors
+
+![Linear Dependence Example 1](./assets/09_multi_decompose_parametric.svg)
+
+### Equation 1
+
+The linear dependence between the decomposition vectors can be written as: $\vec{b} = 2\vec{a} \implies 2\vec{a} - \vec{b} = \vec{0}$.
+
+$$
+\begin{aligned}
+\vec{d} &= \vec{c} - \vec{b} \\
+        &= \vec{c} - \vec{b} + \alpha(2\vec{a} - \vec{b}) \\
+        &= 2\alpha\vec{a} - (1 + \alpha)\vec{b} + \vec{c}
+\end{aligned}
+$$
+
+### Equation 2
+
+The linear dependence between the decomposition vectors can be written as: $\vec{c} = \vec{0}$.
+
+$$
+\begin{aligned}
+\vec{d} &= 2\vec{a}
+        &= 2\vec{a} + \alpha\vec{c}
+\end{aligned}
+$$
+
+---
+
+## 52. Linear Dependence Example 2 - Geometric Vectors
+
+![decompose 2](./assets/10_decompose_2.png)
+
+Linear dependence between the decomposition vectors: $\vec{a} + \vec{b} + \vec{c} = \vec{0}$.
+
+$$
+\begin{aligned}
+\vec{d} &= \vec{c} + \vec{b} \\
+        &= \vec{c} + \vec{b} + \alpha(\vec{a} + \vec{b} + \vec{c}) \\
+        &= \alpha\vec{a} + (1 + \alpha)\vec{b} + (1 + \alpha)\vec{c}
+\end{aligned}
+$$
+
+![decompose 3](./assets/11_decompose_3.svg)
+
+Linear dependence between the decomposition vectors:
+$$
+\begin{aligned}
+\vec{b} &= 2\vec{a} \\
+\implies 2\vec{a} - \vec{b} &= \vec{0} \\
+\vec{d} &= 2\vec{c} \\
+\implies 2\vec{c} - \vec{d} &= \vec{0}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\vec{e} &= \vec{b} + \vec{d} \\
+        &= \vec{b} + \vec{d} + \alpha(2\vec{a} - \vec{b}) + \beta(2\vec{c} - \vec{d}) \\
+        &= 2\alpha\vec{a} + (1 - \alpha)\vec{b} + 2\beta\vec{c} + (1 - \beta)\vec{d}
+\end{aligned}
+$$
+
+---
+
+## 53. Linear Dependence Example 3 - Geometric Vectors
+
+![decompose 4](./assets/12_decompose_4.svg)
+
+Linear dependence between the decomposition vectors:
+
+$$
+\begin{aligned}
+\vec{b} &= \vec{a} + \vec{c} \\
+\vec{d} &= \vec{c} - \vec{a} \\
+\vec{c} &= \frac{1}{2}\vec{b} + \frac{1}{2}\vec{d}
+\end{aligned}
+$$
+
+Hence, one could write the decomposition of $\vec{e}$ as:
+
+$$
+\begin{aligned}
+\vec{e} = & 2\vec{a} \\
+&+ \alpha ( \vec{a} - \vec{b} + \vec{c} ) \\
+&+ \beta ( -\vec{a} + \vec{c} - \vec{d} ) \\
+&+ \cancel{\gamma (\frac{1}{2} \vec{b} - \frac{1}{2} \vec{d} )}
+\end{aligned}
+$$
+
+However, the third equation is not not new information, it can be deduced from the first 2 equations. Hence, we should not add the third fancy 0 as a degree of freedom. This is because, then we'll have multiple values for the coefficients of the fancy zeroes to get the same vector.
+
+---
+
+## 54. Linear Dependence Example 4 - Polynomials
+
+Decompse $x$ using the following polynomials:
+
+$$
+\begin{aligned}
+\begin{cases}
+p_{1}(x) &=x^{2}-x \\
+p_{2}(x) &=x-1 \\
+p_{3}(x) &=1-x^{2}\\
+p_{4}(x) &=x^{2}
+\end{cases}
+\end{aligned}
+$$
+
+Linear dependence: $p_{1}(x) +p_{2}(x) +p_{3}(x) =0$.
+
+Hence, decomposition of x can be written as:
+
+$$
+\begin{aligned}
+x &= p_4(x) - p_1(x) \\
+  &= p_4(x) - p_1(x) + \alpha(p_1(x) + p_2(x) + p_3(x)) \\
+  &= (\alpha - 1)p_1(x) + \alpha p_2(x) + \alpha p_3(x) + p_4(x)
+\end{aligned}
+$$
+
+---
+
+## 55. Linear Dependence Example 5 - Vectors in $\mathbb{R}^N$:
+
+Decompose the target vector:
+
+$$
+\begin{aligned}
+e = \begin{bmatrix} 73 \\\ 15 \\\ 13 \end{bmatrix}
+\end{aligned}
+$$
+
+using the following vectors:
+
+$$
+\begin{aligned}
+a = \begin{bmatrix} 1 \\\ 1 \\\ 1 \end{bmatrix} ,\quad
+b = \begin{bmatrix} 1 \\\ 1 \\\ 0 \end{bmatrix} ,\quad
+c = \begin{bmatrix} 1 \\\ 0 \\\ 0 \end{bmatrix} ,\quad
+d = \begin{bmatrix} 11 \\\ 35 \\\ 20 \end{bmatrix}
+\end{aligned}
+$$
+
+Linear dependence: $d = 20a + 15b - 24c$.
+
+$$
+\begin{aligned}
+e &= 13a + 2b + 58c \\
+  &= 13a + 2b + 58c + \alpha(20a + 15b - 24 - d) \\
+  &= (13 + 20\alpha)a + (2 + 15\alpha)b + (58 - 24\alpha)c - \alpha d
+\end{aligned}
+$$
+
+---
+
+## 56. Linear Systems for the Impatient
+
+The matrix form and the polynomial form are kind similiar.
+
+---
+
+## 57. The Null Space
+
+- We see that Linear Combinations are acting like vectors.
+- if we have two vectors indicating linear dependence, then they can be added together, or multiplied by a scalar : the resultant vector is also 0.
+
+![decompose 4](./assets/12_decompose_4.svg)
+
+Linear dependence between the decomposition vectors:
+
+$$
+\begin{aligned}
+\vec{b} &= \vec{a} + \vec{c} \\
+\vec{d} &= \vec{c} - \vec{a}
+\end{aligned}
+$$
+
+OR
+
+$$
+\begin{aligned}
+&\vec{a} &- \vec{b} &+ \vec{c} &&= \vec{0} \\
+&\vec{a} &&- \vec{c} &+ \vec{d} &= \vec{0}
+\end{aligned}
+$$
+
+In the $R^4$ form these coefficients can be written as:
+
+$$
+\begin{bmatrix}
+1 \\\ -1 \\\ 1 \\\ 0
+\end{bmatrix}, \quad
+\begin{bmatrix}
+1 \\\ 0 \\\ -1 \\\ 1
+\end{bmatrix}
+$$
+
+We see the correspondence between geometric, polynomial and $\mathbb{R}^n$ vectors here.
+
+The coeffcients of a linear combination polynomial equation are associated with an element from $\mathbb{R}^n$, a set of $n$ numbers, one for each one of the vectors from the ordered set of geometric vectors.
+
+$$
+\alpha
+\begin{bmatrix}
+1 \\\ -1 \\\ 1 \\\ 0
+\end{bmatrix} +
+\beta
+\begin{bmatrix}
+1 \\\ 0 \\\ -1 \\\ 1
+\end{bmatrix}
+$$
+
+The equation above respresents the space of all possible linear combinations that yield the zero vector.
+
+It is a subspace of $\mathbb{R}^4$, a span of the two vectors.
+
+__Null space is a linear combination of those linear combinations which yield the zero vector. 😵‍💫__
+
+__Every set of vectors gives birth to a subspace of $\mathbb{R}^n$ and that subspace represents all possible linear combinations (the trivial ones included) that yield zero, and that subspace is called the null space.__
+
+---
+
+---
+
+## 58. Three Linearly Independent Vectors in a plane
+
+The magic number is 2. We cannot have 3 linearly independent vectors in a plane. This is not a theorem, but merely a realization.
+In Three Dimensional space, we can have 3 linearly independent vectors.
+
+---
+
+## 61. Concept of Basis and Dimension
+
+__The fewest number of vectors in a spanning set is the largest number of linearly independent vectors.__
+
+- The Dimension this this magical number.
+- The Basis is the set of vectors that are linearly independent and span the space.
+
+---
+
+## 62. Relationship among Four Quadratic Polynomials
+
+Suppose you have four quadratic polynomials, with scary-looking coefficients. Can one of the polynomials be written as a linear combination of the rest? Are these polynomials linearly dependent?
+
+- The polynomials are in the vector space of quadratic polynomials.
+- The space of the quadratic polynomials is a 3-dimensional space. That's because the basis for it is $\{1, x, x^2\}$.
+- We have 4 vectors, but 3 dimensions. So, they are necessarily linearly dependent.
+
+---
+
+## 63. Linear Dependence by Simple Counting
+
+Are these 3 vectors in $\mathbb{R}^3$ linearly dependent?
+
+$$
+\begin{aligned}
+\begin{bmatrix} 100 \\\ 1 \\\ 101 \end{bmatrix}, \quad
+\begin{bmatrix} 1 \\\ 2 \\\ 3 \end{bmatrix}, \quad
+\begin{bmatrix} 5 \\\ 2 \\\ 7 \end{bmatrix}
+\end{aligned}
+$$
+
+- Guessing the coefficients is a bit hard
+- We do notice the last entry is sum of the first two entries in each vector.
+  + This is a characteristic of a linear subspace, i.e., a linear property.
+  + The subspace is smaller than $\mathbb{R}^3$. It is a proper subspace.
+  + Some vectors in $\mathbb{R}^3$ will not have this property.
+  + The dimension of this subspace is 2, i.e., it's a plane (We'll prove this later).
+- Hence, these vectors are linearly dependent.
+
+---
+
