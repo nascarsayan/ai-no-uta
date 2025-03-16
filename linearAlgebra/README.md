@@ -1716,3 +1716,28 @@ If some linear system is unsolvable, but we want to go as close to the solution 
 
 ---
 
+## 81. Introduction to Guassian Elimination
+
+### What it is
+
+Guassian Elimination is an algorithm to solve linear systems. It's a systematic and robust way to find the solution to a linear system.
+
+### What it isn't
+
+If you are wondering, why did we need to have insights into the relationships among:
+- The target vector and each of the vectors in the matrix
+- The vectors in the matrix
+
+If you think after using Guassian Elimination, we'll no longer have to worry about being clever, or insightful, or worrying about those relationships, then the opposite is true. __The purpose of Guassian Elimination is simply to help you identify those relationships. It is not an alternative approach to identifying relationships.__
+
+---
+
+## 82. The Operations of Guassian Elimination
+
+3 Operations:
+1. Adding a multiple of one row to another.
+2. Multiply a row by a scalar.
+3. Swap two rows.
+
+---
+
