@@ -1578,3 +1578,141 @@ We see, that with the addition of every new column, it is either:
 
 ---
 
+## 78. An Exceedingly Simple Linear System
+
+The dollars and quarters problem that we had before:
+
+$$
+x + 1/4y = 100
+$$
+
+can be written as:
+
+$$
+\begin{bmatrix}
+1 & 1/4
+\end{bmatrix}
+\begin{bmatrix}
+x \\\ y
+\end{bmatrix} =
+\begin{bmatrix}
+100
+\end{bmatrix}
+$$
+
+All the columns of the system live in $\mathbb{R}^1$.
+
+Particular solution is $[100 \quad 0]$.
+
+Null space is $\alpha[1 \quad -4]$.
+
+General solution is:
+
+$$
+\begin{bmatrix}
+100 \\\ 0
+\end{bmatrix} +
+\alpha
+\begin{bmatrix}
+1 \\\ -4
+\end{bmatrix}
+$$
+
+---
+
+## 79. The Simplest Possible System
+
+$ax = b$
+
+How many solutions can this system have?
+
+If you said 1, you are not quite correct. It can have 0, 1, or infinitely many solutions, depending on the values of $a$ and $b$.
+
+The different patterns as per the values of $a$ and $b$:
+
+$$
+\begin{aligned}
+5x &= 10 \quad \text{has 1 solution} \\
+5x &= 0 \quad \text{has 1 solution} \\
+0x &= 5 \quad \text{has 0 solution} \\
+0x &= 0 \quad \text{has infinitely many solutions}
+\end{aligned}
+$$
+
+In matrix form, the general framework is:
+
+$$
+\begin{bmatrix}a\end{bmatrix}
+\begin{bmatrix}x\end{bmatrix} =
+\begin{bmatrix}b\end{bmatrix}
+$$
+
+### Case 1
+
+$$
+\begin{bmatrix}5\end{bmatrix}
+\begin{bmatrix}x\end{bmatrix} =
+\begin{bmatrix}10\end{bmatrix}
+$$
+
+- The vector(s) in the matrix spans all of $\mathbb{R}^1$.
+- The vectors are linearly independent.
+- The null space is the zero vector, i.e., $\mathbf{N} = \{\begin{bmatrix}0\end{bmatrix}\}$.
+- There is a unique solution, $x = 2$.
+
+### Case 2
+
+$$
+\begin{bmatrix}5\end{bmatrix}
+\begin{bmatrix}x\end{bmatrix} =
+\begin{bmatrix}0\end{bmatrix}
+$$
+
+Same as Case 1, there is a unique solution, $x = 0$.
+
+### Case 3
+
+$$
+\begin{bmatrix}0\end{bmatrix}
+\begin{bmatrix}x\end{bmatrix} =
+\begin{bmatrix}10\end{bmatrix}
+$$
+
+- The vector(s) in the matrix only have the zero vector, i.e., the column space of the matrix is the zero vector: $\mathbf{R} = \{\begin{bmatrix}0\end{bmatrix}\}$.
+- The null space is all of $\mathbb{R}^1$, i.e., $\mathbf{N} = \mathbb{R}^1$.
+- There is no solution, as the target vector is not a zero vector, and hence not in the column space of the matrix.
+
+### Case 4
+
+$$
+\begin{bmatrix}0\end{bmatrix}
+\begin{bmatrix}x\end{bmatrix} =
+\begin{bmatrix}0\end{bmatrix}
+$$
+
+- The column space and the null space both remain same as Case 3 above, i.e., $\mathbf{R} = \{\begin{bmatrix}0\end{bmatrix}\}$ and $\mathbf{N} = \mathbb{R}^1$.
+
+We can have multiple solutions. A particular solution is $[0]$, and the general solution is:
+
+$$
+\begin{bmatrix}x\end{bmatrix} =
+\begin{bmatrix}0\end{bmatrix} +
+\alpha
+\begin{bmatrix}1\end{bmatrix}
+$$
+
+Simplyfying the above, we get:
+
+$$
+\begin{bmatrix}x\end{bmatrix} =
+\begin{bmatrix}\alpha\end{bmatrix}
+$$
+
+---
+
+## 80. You and I Have a Problem - We need Some Distance!
+
+If some linear system is unsolvable, but we want to go as close to the solution as possible, we need some concept of distance. We cannot have separate notions of distance in $\mathbb{R}^n$ and geometric vectors (for example Euclidean distance seems arbitrary for a set of numbers, i.e. $\mathbb{R}^n$).
+
+---
+
