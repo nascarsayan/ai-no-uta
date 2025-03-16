@@ -1923,7 +1923,7 @@ But if one is doing to the exclusion of the geometric ideas, then one is clearly
 
 ---
 
-## 106. Matrix Products as Actions
+## 108. Matrix Products as Actions
 
 __Try to think in terms of actions, what are the columns of the right matrix doing as action to the columns of the left matrix.__
 
@@ -1945,4 +1945,24 @@ This will simply add the 3 columns of the matrix.
 
 ---
 
-## 
+## 111. A whole lot of examples
+
+- The rank of the resulting matrix is no greater than the rank of the left matrix.
+- Upper triangular matrices and lower triangular matrices.
+- Multiplying 2 U.T. will give a U.T. matrix
+- Multiplying 2 L.T. will give a L.T. matrix
+- The column switcher and the row switcher is below:
+
+$$
+\begin{bmatrix}
+0 & 1 & 0 \\
+1 & 0 & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+$$
+
+__When applied from the right, it switches columns. When applied from the left, it switches rows. And the row-switched and the column-switched matrices are transposes of each other 🤯.__
+
+## 112. Crooked Matrices
+
+~~Done for the day~~ 😅
