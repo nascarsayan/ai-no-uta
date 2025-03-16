@@ -1909,3 +1909,40 @@ $$
 
 ---
 
+## 105. Introduction to Matrix Multiplication and Matrix Algebra
+
+"Bringing of the wealth of the algebraic ideas to the subject of linear algebra." - Pavel Grinfeld
+
+1. Empowers Linear Algebra with algebraic ideas.
+2. Introduces an effective and compact language.
+3. Possesses remarkable versatility.
+
+"The highest plateau that a subject can reach is when the ideas are mature enough that they can be expressed by algebraic expressions. All the subjects in Applied Mathematics aspire to reach this plateau." - Pavel Grinfeld
+
+But if one is doing to the exclusion of the geometric ideas, then one is clearly overdoing it, and giving up much of the power of linear algebra that comes from its geometric inspiration.
+
+---
+
+## 106. Matrix Products as Actions
+
+__Try to think in terms of actions, what are the columns of the right matrix doing as action to the columns of the left matrix.__
+
+$$
+\begin{bmatrix}
+0 \\\ 1 \\\ 0
+\end{bmatrix}
+$$
+
+This is a column picker, picking the 3rd column of the matrix.
+
+$$
+\begin{bmatrix}
+1 \\\ 1 \\\ 1
+\end{bmatrix}
+$$
+
+This will simply add the 3 columns of the matrix.
+
+---
+
+## 
