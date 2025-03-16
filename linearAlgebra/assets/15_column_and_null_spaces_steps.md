@@ -1,3 +1,13 @@
+---
+font_size: 40
+blocks:
+  - name: "Matrix"
+    position: [2.2, -3.5]
+  - name: "ColumnSpace"
+    position: [-1, -5]
+  - name: "NullSpace"
+    position: [-1, 1.5]
+---
 
 ### Step 1
 

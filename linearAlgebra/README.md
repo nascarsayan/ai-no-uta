@@ -1565,7 +1565,7 @@ However, the 2nd and 4th columns are $\mathbf{0}$, so they are not contributing 
 
 We are working with vectors in $\mathbb{R}^4$. We'll keep on adding vectors to the matrix, and see how the column space and the null space evolve.
 
-![Column and Null Space Evolution](./assets/ColumnAndNullSpace.gif)
+![Column and Null Space Evolution](./assets/15_column_and_null_spaces_steps.mp4)
 
 We see, that with the addition of every new column, it is either:
 - independent of the previous columns, in which case it augments the dimension of the column space, or
@@ -1738,6 +1738,22 @@ If you think after using Guassian Elimination, we'll no longer have to worry abo
 1. Adding a multiple of one row to another.
 2. Multiply a row by a scalar.
 3. Swap two rows.
+
+---
+
+## 83. Review Column Space vs Null Space
+
+- The purpose of the column space is to help you determine whether there is even a single solution.
+- The purpose of the null space is to help you determine whether the solution is unique, or if there are multiple solutions, i.e., various ways you can get zeroes.
+
+- Column space focuses on the column
+- Null space focuses on the row (i.e., the coefficients)
+
+---
+
+## 86. Gaussian Elimination cannot be used to determine the Column Space
+
+__Guassian Elimination can be used to determine the null space, but can't be used to determine the column space.__
 
 ---
 
