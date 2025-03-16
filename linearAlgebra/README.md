@@ -1299,3 +1299,282 @@ The pattern might appear in a different form too, instead of $[1, 0, 0]$, it mig
 
 ---
 
+---
+
+## 68. Linear Systems Terminology
+
+Polynomial form:
+
+$$
+\begin{aligned}
+    6x - 3y + 4z - 7t &= 11 \\
+    3x - 2y + 3z + 14t &= 5
+\end{aligned}
+$$
+
+Vector form:
+
+$$
+\begin{bmatrix} 6 \\\ 3 \end{bmatrix} x +
+\begin{bmatrix} -3 \\\ -2 \end{bmatrix} y +
+\begin{bmatrix} 4 \\\ 3 \end{bmatrix} z +
+\begin{bmatrix} -7 \\\ 14 \end{bmatrix} t =
+\begin{bmatrix} 11 \\\ 5 \end{bmatrix}
+$$
+
+Matrix form:
+
+$$
+\begin{bmatrix}
+6 & -3 & 4 & -7 \\
+3 & -2 & 3 & 14
+\end{bmatrix}
+\begin{bmatrix}
+x \\\ y \\\ z \\\ t
+\end{bmatrix} =
+\begin{bmatrix}
+11 \\\ 5
+\end{bmatrix}
+$$
+
+### The Column Space
+
+It's __synonymous to span__. In Linear Systems, it's called the column space instead of the span, __because each vector in the system is a column of the matrix. 🙄__<br/>
+It's denoted by the letter $\mathbf{R}$. R stands for range, because we can think of the column space as the range of the polynomial expresssion corresponding to the matrix.
+
+### The Null Space
+
+It's the set of all solutions to the system of equations that yield the zero vector. It's denoted by the letter $\mathbf{N}$. It's already discussed before.
+
+### The Matrix Form
+
+We'll not write the system in either polynomial form or the vector form. Insteead we'll adopt the matrix notation, with a razor sharp focus on the coefficients. Because after all, __the linear systems is not so much about the letters and the names of the variables, as it is about the interplay and the relationships among the coefficients 😇.__ It's more effective and space-efficeint way of stating the decomposition problem.
+
+$$
+\begin{bmatrix}
+6 & -3 & 4 & -7 \\
+3 & -2 & 3 & 14
+\end{bmatrix}
+\begin{bmatrix}
+x \\\ y \\\ z \\\ t
+\end{bmatrix} =
+\begin{bmatrix}
+11 \\\ 5
+\end{bmatrix}
+$$
+
+---
+
+## 69. Our First Linear System
+
+$$
+\begin{bmatrix}
+1 & 0 & 4 & 7 \\
+0 & 1 & 5 & 11
+\end{bmatrix}
+\begin{bmatrix}
+x \\\ y \\\ z \\\ t
+\end{bmatrix} =
+\begin{bmatrix}
+8 \\\ 11
+\end{bmatrix}
+$$
+
+First we find out __a particular solution__, and thanks to $C_1$ and $C_2$, it's easy to find that out.
+
+$$
+\begin{bmatrix}
+x \\\ y \\\ z \\\ t
+\end{bmatrix} =
+\begin{bmatrix}
+8 \\\ 11 \\\ 0 \\\ 0
+\end{bmatrix}
+$$
+
+Next, we find out the dependency among the columns which contribute to the null space of the matrix. Here, there are 2 degrees of freedom for the null space, (aside: hence null space is a plane). The __general solution__ can be written as:
+
+$$
+\begin{bmatrix}
+x \\\ y \\\ z \\\ t
+\end{bmatrix} =
+\begin{bmatrix}
+8 \\\ 11 \\\ 0 \\\ 0
+\end{bmatrix} +
+\alpha
+\begin{bmatrix}
+4 \\\ 5 \\\ -1 \\\ 0
+\end{bmatrix} +
+\beta
+\begin{bmatrix}
+7 \\\ 11 \\\ 0 \\\ -1
+\end{bmatrix}
+$$
+
+We can have multiple choices for the initial particular soltion that we arrived into. The expression of the general solution can change, but the resultant set representing the solution of the linear system will be the same.
+
+This is analogous to the geometric vector equation of a plane (2 degrees of freedom), shifted by some vector. The shifting vector that we choose can be different, (and even the choice of the vectors representing the null space may vary), but the resultant plane will be the same regardless of the choice of the vector.
+
+---
+
+## 73. A $3 \times 3$ Matrix Linear System:  Dial Pad Matrix
+
+$$
+\begin{bmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{bmatrix}
+\begin{bmatrix}
+x \\\ y \\\ z
+\end{bmatrix} =
+\begin{bmatrix}
+20 \\\ 50 \\\ 80
+\end{bmatrix}
+$$
+
+- A particular solution is $[0 \quad 10 \quad 0]$.
+- Relationship between the columns: $C_2 = 1/2C_1 + 1/2C_3$.
+  + Null space is $\alpha[1 \quad -2 \quad 1]$.
+- General solution is $[0 \quad 10 \quad 0] + \alpha[1 \quad -2 \quad 1]$.
+
+Notice that there is linear relationship between the entries in the vctor two: 2nd entry is average of the 1st and 3rd entry. So, the target vector must follow the same linear relationship, i.e., it must be in the column space of the matrix.<br/>
+Column space has the pattern : $\mathbf{R} = \alpha[a \quad (a+b)/2 \quad b]$.
+
+---
+
+## 74. A Tall Linear System
+
+$$
+\begin{bmatrix}
+1 & 0 \\
+0 & 1 \\
+4 & 5 \\
+7 & 11
+\end{bmatrix}
+\begin{bmatrix}
+x \\\ y
+\end{bmatrix} =
+\begin{bmatrix}
+1 \\\ 1 \\\ 9 \\\ 18
+\end{bmatrix}
+$$
+
+This has 2 unknowns and 4 equations, i.e., 2 degrees of freedom to satisfy 4 conditions.
+It's highly unlikely to have a solution for such systems.
+
+However, here, target is sum of the 2 vectors. Null space is the zero vector.
+
+$$
+\mathbf{N} = \{\begin{bmatrix} 0 \\\ 0 \end{bmatrix}\}
+$$
+
+> [!NOTE]
+> __Null space is never empty. It always has the zero vector.__
+
+> We did get lucky here 😉, because we have only 2 degrees of freedom to get to a vector in $\mathbb{R}^4$.<br/>
+> The probability that a random vector in $\mathbb{R}^4$ is a linear combination of 2 vectors is 0 🥲.
+
+---
+
+## 75. A Wide Linear System
+
+$$
+\begin{bmatrix}
+2 & 5 & 6 & 7 & 241
+\end{bmatrix}
+\begin{bmatrix}
+x \\\ y \\\ z \\\ t \\\ u
+\end{bmatrix} =
+\begin{bmatrix}
+6
+\end{bmatrix}
+$$
+
+We have 5 vectors in $\mathbb{R}^1$. One non-zero would have been enough to solve the system, and we have 5 - meaning we will have a very rich null space, owing to a lot of freedom 🥳
+
+$$
+\begin{bmatrix}
+x \\\ y \\\ z \\\ t \\\ u
+\end{bmatrix} =
+\begin{bmatrix}
+3 \\\ 0 \\\ 0 \\\ 0 \\\ 0
+\end{bmatrix} +
+\alpha
+\begin{bmatrix}
+5 \\\ -2 \\\ 0 \\\ 0 \\\ 0
+\end{bmatrix} +
+\beta
+\begin{bmatrix}
+3 \\\ 0 \\\ -1 \\\ 0 \\\ 0
+\end{bmatrix} +
+\gamma
+\begin{bmatrix}
+7 \\\ 0 \\\ 0 \\\ -2 \\\ 0
+\end{bmatrix} +
+\delta
+\begin{bmatrix}
+241 \\\ 0 \\\ 0 \\\ 0 \\\ -2
+\end{bmatrix}
+$$
+
+---
+
+## 76. A Linear System with Zero Columns
+
+$$
+\begin{bmatrix}
+1 & 0 & 2 & 0 \\
+2 & 0 & 4 & 0 \\
+3 & 0 & 3 & 0
+\end{bmatrix}
+\begin{bmatrix}
+x \\\ y \\\ z \\\ t
+\end{bmatrix} =
+\begin{bmatrix}
+3 \\\ 3 \\\ 6
+\end{bmatrix}
+$$
+
+$$
+\begin{bmatrix}
+x \\\ y \\\ z \\\ t
+\end{bmatrix} =
+\begin{bmatrix}
+1 \\\ 0 \\\ 1 \\\ 0
+\end{bmatrix}
++
+\alpha
+\begin{bmatrix}
+0 \\\ 1 \\\ 0 \\\ 0
+\end{bmatrix}
++
+\beta
+\begin{bmatrix}
+0 \\\ 0 \\\ 0 \\\ 1
+\end{bmatrix}
+$$
+
+Another thing, did we get lucky to find a solution?
+
+At first glance by simple counting we see there are 4 degrees of freedom and 3 conditions, so maybe we have enough vectors?<br/>
+However, the 2nd and 4th columns are $\mathbf{0}$, so they are not contributing to the system. Hence, we have only 2 degrees of freedom, and 3 conditions, so we did get lucky 😇.
+
+---
+
+## 77. The Relationship Between the Column Space and the Null Space.
+
+We are working with vectors in $\mathbb{R}^4$. We'll keep on adding vectors to the matrix, and see how the column space and the null space evolve.
+
+![Column and Null Space Evolution](./assets/ColumnAndNullSpace.gif)
+
+We see, that with the addition of every new column, it is either:
+- independent of the previous columns, in which case it augments the dimension of the column space, or
+- it is linearly dependent on the previous columns, in which case it augments the dimension of the null space.
+
+> [!NOTE]
+> __Dimention of the column space + Dimention of the null space = Number of columns in the matrix.__
+>
+> $\text{Dim}(\mathbf{R}) + \text{Dim}(\mathbf{N}) = | \text{col} |$
+
+---
+

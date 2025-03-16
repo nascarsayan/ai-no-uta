@@ -123,3 +123,6 @@ config.yaml
 
 .DS_Store
 Thumbs.db
+
+# typings stubs
+typings/
