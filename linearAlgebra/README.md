@@ -1565,7 +1565,7 @@ However, the 2nd and 4th columns are $\mathbf{0}$, so they are not contributing 
 
 We are working with vectors in $\mathbb{R}^4$. We'll keep on adding vectors to the matrix, and see how the column space and the null space evolve.
 
-![Column and Null Space Evolution](./assets/15_column_and_null_spaces_steps.mp4)
+![Column and Null Space Evolution](./assets/15_column_and_null_spaces_steps.gif)
 
 We see, that with the addition of every new column, it is either:
 - independent of the previous columns, in which case it augments the dimension of the column space, or
@@ -1753,7 +1753,23 @@ If you think after using Guassian Elimination, we'll no longer have to worry abo
 
 ## 86. Gaussian Elimination cannot be used to determine the Column Space
 
-__Guassian Elimination can be used to determine the null space, but can't be used to determine the column space.__
+__Guassian Elimination can be used to determine the null space, but can't be used to determine the column space.__ It reserves the relationships between the columns, but it does not preserve the column space or span.
 
 ---
+
+## 88. Row Switching
+
+We:
+1. Move from left to right, eliminating everything we can below the pivot.
+2. Move from right to left, eliminating everything we can above the pivot.
+
+Step 1 is called __Gaussion Elimination__, which is marching forward and eliminating everything below the pivot.
+Step 2 is called __Jordan Back Substitution__, which is marching back to the left and eliminating everything above it.
+
+---
+
+## 89. Which Columns Are Pivot Columns in Guassian Elimination?
+
+The columns that have pivots are called the __pivot columns__.<br/>
+The columns that are linearly independent from the columns that came before it become the pivot columns. The dependent columns become the non-pivot columns. The converse is also true.
 

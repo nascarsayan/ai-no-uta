@@ -15,6 +15,8 @@ cwd = curr_file.parent.resolve()
 default_input_dir = (cwd / "../assets").resolve()
 default_destination = default_input_dir
 
+VIDEO_FORMAT = "mp4"
+
 def parse_markdown(filename: Path) -> Tuple[Dict[str, Any], List[List[str]]]:
     """ Parses the markdown file to extract frontmatter config and step-wise LaTeX matrices. """
     with open(filename, "r", encoding="utf-8") as f:
@@ -122,7 +124,7 @@ def process_markdown_file(markdown_file: Path, destination: Path, theme: ManimCo
         output_name = markdown_file.stem
         print(f"Processing {markdown_file.name}...")
         # Check if output files already exist
-        video_path_dest = destination / f"{output_name}.mp4"
+        video_path_dest = destination / f"{output_name}.{VIDEO_FORMAT}"
         gif_path_dest = destination / f"{output_name}.gif"
         if video_path_dest.exists() and gif_path_dest.exists():
             print(f"Skipping {markdown_file.name} - both video and GIF already exist in {destination}")
@@ -140,6 +142,7 @@ def process_markdown_file(markdown_file: Path, destination: Path, theme: ManimCo
             "output_file": output_name,
             "media_dir": cwd / "media",  # Use a consistent media directory
             "quality": "low_quality",
+            "format": VIDEO_FORMAT,
             "preview": False,
             "background_color": theme,
         }):
@@ -150,7 +153,7 @@ def process_markdown_file(markdown_file: Path, destination: Path, theme: ManimCo
         # Find the output video by searching for it recursively in the media directory
         # The error log shows the actual path where the file is created
         media_dir = cwd / "media"
-        found_videos = list(media_dir.glob(f"**/{output_name}.mp4"))
+        found_videos = list(media_dir.glob(f"**/{output_name}.{VIDEO_FORMAT}"))
         video_path = None
         if found_videos:
             # Use the most recently created video if multiple are found
