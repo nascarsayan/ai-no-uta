@@ -1773,3 +1773,139 @@ Step 2 is called __Jordan Back Substitution__, which is marching back to the lef
 The columns that have pivots are called the __pivot columns__.<br/>
 The columns that are linearly independent from the columns that came before it become the pivot columns. The dependent columns become the non-pivot columns. The converse is also true.
 
+---
+
+Exercises...
+
+---
+
+## 97. Pragmatic Guassian Elimination
+
+We go completely unorthodox here, and start with bottom right as our first pivot. This is valid, and will give us the same result as the orthodox approach.
+
+---
+
+## 98. Gaussian Thinning
+
+Doing some __Guassian Thinning__ is simply doing some Guassian Elimation steps to just view the relationships among the columns, and not completely to solve the system.
+
+---
+
+## 99. Row Reduced Echelon Form (RREF)
+
+### Column Perspective
+
+- The $N^{th}$ pivot column has a single non-zero entry in the $N^{th}$ row.
+- The pivots are the first non-zero entry in their respective rows.
+- The pivot columns are the linearly independent columns of the matrix.
+- The remaining columns are the linearly dependent on the pivot columns that came before them.
+
+Reduced means that the pivots are 1, else it's called the __Row Echelon Form__.
+
+### Row Perspective
+
+- All the non-zero rows come first.
+- The leading entry of each row is to the right of the leading entry of the row above it.
+
+### Echeleon
+
+Echelon means steps on a stair, and it's the structure that all the non-zero entries are roughly in the up and to the right direction.
+
+---
+
+## 101. RREF Challenge
+
+> [!IMPORTANT]
+> Given the Null Space of the matrix, can we get back the RREF of the matrix?
+
+- Was able to do that for the specially arranged null space (the height (number of 0 rows) of matrix I am not sure, but the width of the matrix could be determined).
+- But not sure how to do that for the non-standard form.
+
+---
+
+## 102. The Rank of a Matrix
+
+__The dimention of the column space is equal to the dimention of the row space. 🤯__
+
+- Guassian Elimination leaves the dimention of the column space unchanged.
+- GE does not even change the row space of the matrix, let alone the dimension of the row space 🧐
+
+After GE, the dimension of the column space, and the dimention of the row space stay unchanged.
+The row-space and the column-space can be seen as equal in RREF, and hence they are equal in the original matrix too.
+
+__Row rank = Column rank = Rank of the matrix__
+
+---
+
+## 103. An Application of the Matrix Rank
+
+By simple observation, can you tell if the columns are linearly dependent (without doing Guassian Elimination)?
+
+$$
+\begin{bmatrix}
+17 & 19 & 3 \\
+10 & 20 & 30 \\
+117 & 219 & 303
+\end{bmatrix}
+$$
+
+It's diffcult to see the linear coefficients for the dependence via the columns, but the linear dependence can be fairly easily seen via the rows: $C_3 = C_1 + 10C_2$.
+
+Since the rows are linearly dependent, the columns are also linearly dependent (as Rank of the matrix = 2).
+
+---
+
+## 104. The RREF of a Matrix Whose the Null Space is Known Beforehand
+
+When the null space of a matrix is already known, why do Gaussian Elimination. Maybe to do some auxilliary tasks?
+
+$$
+\begin{bmatrix}
+3 & 4 & 7 & 1 & 34 \\
+7 & 15 & 22 & 8 & 85 \\
+15 & 1 & 16 & -4 & 151 \\
+18 & 1 & 19 & -17 & 181
+\end{bmatrix}
+$$
+
+The linear dependence between the columns in the original matrix will be preserved after RREF, so we can easily calculate the values in the RREF matrix:
+- If the current column is linearly independent of previous ones, we've got a new pivot column.
+- If the current column is linearly dependent on previous ones, we can use the relationship between the columns to calculate the values in the RREF matrix.
+
+RREF is:
+
+$$
+\begin{bmatrix}
+1 & 0 & 1 & -1 & 10 \\
+0 & 1 & 1 & 1 & 1 \\
+0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+The below matrix values were arbitrarily chosen.
+
+$$
+\begin{bmatrix}
+9 & -1 & -4 & 11 \\
+3 & 33 & -8 & -4 \\
+7 & 48 & 28 & 25 \\
+8 & 15 & 31 & 73
+\end{bmatrix}
+$$
+
+Then, by the same geometric analogy of throwing a vector in space and catching it, it's most likely that the columns will be indepdenent.
+
+The RREF is:
+
+$$
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{bmatrix}
+$$
+
+---
+
