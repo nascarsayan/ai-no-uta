@@ -1963,6 +1963,208 @@ $$
 
 __When applied from the right, it switches columns. When applied from the left, it switches rows. And the row-switched and the column-switched matrices are transposes of each other 🤯.__
 
-## 112. Crooked Matrices
+---
 
-~~Done for the day~~ 😅
+## 113-114. Associativity and Commutativity of Matrix Multiplication
+
+- Associativity exists $\mathbf{A}(\mathbf{B}\mathbf{C}) = (\mathbf{A}\mathbf{B})\mathbf{C}$
+- Commutativity does not exist $\mathbf{A}\mathbf{B} \neq \mathbf{B}\mathbf{A}$
+  + There is no commutativity in life. For example, if you first put on your socks and then put on your shoes, it's not the same as first putting on your shoes and then putting on your socks.
+
+---
+
+## 115. The Three Equivalent perspectives on Matrix Multiplication
+
+- __Columns perspective__: The linear combination of the columns from the left, where the coefficients come from the corresponding column of the right.
+- __Dot Product perspective__: The dot product of the rows from the left and the columns from the right.
+- __Rows perspective__: The linear combination of the rows from the right, where the coefficients come from the corresponding row of the left.
+
+---
+
+## 116. A Matrix Algebraic Expression for the Null Space
+
+$$
+\begin{aligned}
+\mathbf{A}\mathbf{B} &= \mathbf{C} \\
+\quad \\
+\begin{bmatrix}
+1 & 0 & 3 & 8 \\
+0 & 1 & 7 & 2
+\end{bmatrix}
+\begin{bmatrix}
+3 & 8 & 36 \\
+7 & 2 & 34 \\
+-1 & 0 & -4 \\
+0 & -1 & -3
+\end{bmatrix} &=
+\begin{bmatrix}
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0
+\end{bmatrix}
+\end{aligned}
+$$
+
+The product of 2 non-zero matrices is zero. This means that the columns of the right matrix are in the null space of the left matrix.
+
+We can express the null space by taking the bases of the null space into a matrix of its own.
+
+$$
+\mathbf{N} = 
+\begin{bmatrix}
+3 & 8 \\
+7 & 2 \\
+-1 & 0 \\
+0 & -1
+\end{bmatrix}
+$$
+
+Then, the null space can be expressed as:
+
+$\mathbf{A}\mathbf{N}_\mathbf{A} = \mathbf{0}$
+
+Here $\mathbf{N}_\mathbf{A}$ represents the null space of the matrix $\mathbf{A}$.
+
+Note, that any matrix that produces the zero matrix is not necessarily the null space of the matrix.
+The matrix needs to have the linearly independent basis vectors of the null space to represent the null space.
+
+---
+
+## 117. The Null Space of the Product $\mathbf{AB}$
+
+$$
+\begin{aligned}
+\mathbf{A}\mathbf{B} &= \mathbf{C} \\
+\quad \\
+\begin{bmatrix}
+2 & 4 & 3 & 1 \\
+3 & -1 & 2 & 7
+\end{bmatrix}
+\begin{bmatrix}
+10 & 1 & 11 \\
+3 & 7 & 10 \\
+-2 & 6 & 4 \\
+8 & 2 & 10
+\end{bmatrix} &=
+\begin{bmatrix}
+46 & 14 & \cdots \\
+79 & 22 & \cdots
+\end{bmatrix}
+\end{aligned}
+$$
+
+Can you complete the matrix $\mathbf{C}$ without even looking at $\mathbf{A}$?
+
+- We observe 3rd column of $\mathbf{B}$ is sum of its 1st and 2nd column.
+- Column $\mathbf{C}_i$ in $\mathbf{C}$ is a linear combination of all the columns of $\mathbf{A}$ where the coefficients come from column $\mathbf{B}_i$.
+
+Hence, $\mathbf{C}_3$ will also be the sum of $\mathbf{C}_1$ and $\mathbf{C}_2$.
+
+$$
+\mathbf{C} =
+\begin{bmatrix}
+46 & 14 & 60 \\
+79 & 22 & 101
+\end{bmatrix}
+$$
+
+Whatever relationships are present among the columns of $\mathbf{B}$, the same relationships will be present among the columns of $\mathbf{C}$.
+
+> $\mathbf{N}_\mathbf{B} \subseteq \mathbf{N}_\mathbf{AB}$
+
+However, $\mathbf{B}$ can have a larger null space than $\mathbf{C}$. Example, if $\mathbf{A}$ is the zero matrix, then $\mathbf{C}$ has whole of $\mathbf{R}^N$ as its null space.
+
+---
+
+## 118. The Null Space of the Product $\mathbf{AB}$ , Proof by Matrix Algebra
+
+For the same above matrices, let's prove it algebraically.
+
+If we show the product $\mathbf{C N_B} = 0$, it will mean that when $\mathbf{C}$ is multiplied by the null space of $\mathbf{B}$, it gives the zero matrix, i.e., the null space of $\mathbf{C}$ contains the whole of the null space of $\mathbf{B}$.
+
+$$
+\begin{aligned}
+\mathbf{C N_B} = \mathbf{A B N_B} = \mathbf{A 0} = 0
+\end{aligned}
+$$
+
+---
+
+## 119. The Relationships between the Old and the New Expressions of the Null Space
+
+$$
+\mathbf{A} =
+\begin{matrix}
+1 & 0 & 3 & 8 \\
+0 & 1 & 7 & 2
+\end{matrix}
+$$
+
+Before we used to write in this form:
+
+$$
+\mathbf{N}_\mathbf{A} =
+\alpha
+\begin{bmatrix}
+3 \\\ 7 \\\ -1 \\\ 0
+\end{bmatrix} +
+\beta
+\begin{bmatrix}
+8 \\\ 2 \\\ 0 \\\ -1
+\end{bmatrix}
+$$
+
+Now, we are writing it in the form of a matrix:
+
+$$
+\mathbf{N}_\mathbf{A} =
+\begin{bmatrix}
+3 & 8 \\
+7 & 2 \\
+-1 & 0 \\
+0 & -1
+\end{bmatrix}
+$$
+
+There is only one way to get the old notation from the matrix notation, which is by multiplying the matrix $\mathbf{N}$ from the right using a $2 \times 1$ column vector.
+
+$$
+\begin{bmatrix}
+3 & 8 \\
+7 & 2 \\
+-1 & 0 \\
+0 & -1
+\end{bmatrix}
+\begin{bmatrix}
+\alpha \\\ \beta
+\end{bmatrix} =
+\alpha
+\begin{bmatrix}
+3 \\\ 7 \\\ -1 \\\ 0
+\end{bmatrix} +
+\beta
+\begin{bmatrix}
+8 \\\ 2 \\\ 0 \\\ -1
+\end{bmatrix}
+$$
+
+---
+
+## 120. The column space of $\mathbf{AB}$
+
+> [!NOTE]
+> Excellent video 🤩
+
+By definition of matrix multiplication, a column in C is a __linear combination of the columns of A__, where the coefficients come from the corresponding column of B.
+
+Hence, all the vectors in C must be in the column space of A. Hence the column space of $\mathbf{AB}$ is a subset of the column space of $\mathbf{A}$.
+
+$$
+\mathbf{R_A} \supseteq \mathbf{R_{AB}}
+$$
+
+Can the column space of $\mathbf{AB}$ be the same as the column space of $\mathbf{A}$?
+
+Yes, we need to take enough linearly independent combinations of the linearly independent columns of $\mathbf{A}$ to fill A's entire column space.
+
+---
+
