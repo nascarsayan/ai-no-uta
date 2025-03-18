@@ -2352,3 +2352,253 @@ $$
 __When you are undoing actions, you are always doing them in the opposite order__
 
 ---
+
+## 130. Two Interesting Matrix Product Examples
+
+Can you come up with such 2 examples, and the numbers in the matrix are not trivial multiples, or zeros, but random looking small integers.
+
+$$
+\mathbf{A}\mathbf{B} = \mathbf{0}
+\quad \text{and} \quad
+\mathbf{A}\mathbf{B} = \mathbf{I}
+$$
+
+Example 1:
+
+$$
+\begin{bmatrix}
+4 & 2 & 1 & 7 \\
+1 & 1 & 0 & 3 \\
+0 & -1 & 1 & -5 \\
+-5 & 3 & -4 & 5
+\end{bmatrix}
+\begin{bmatrix}
+-1 & -3 & -2 & -4 \\
+7 & 0 & 8 & 7 \\
+4 & 5 & 6 & 9 \\
+-2 & 1 & -2 & -1
+\end{bmatrix} =
+\begin{bmatrix}
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0
+\end{bmatrix}
+$$
+
+Example 2:
+
+$$
+\begin{bmatrix}
+-8 & 2 & -9 & 1 \\
+7 & -3 & 7 & 1 \\
+2 & -5 & -1 & 7 \\
+-2 & -3 & -5 & 6
+\end{bmatrix}
+\begin{bmatrix}
+-1 & 1 & -5 & 6 \\
+-9 & -10 & 1 & 2 \\
+-1 & -4 & 5 & -5 \\
+-6 & -8 & 3 & -1
+\end{bmatrix} =
+\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{bmatrix}
+$$
+
+### 1st example
+
+1. Left Matrix
+  1. Take 2 fairly good looking independent columns.
+  2. Take the 3rd and 4th column as some fairly good looking linear combination of the 1st and 2nd column (coefficents not too trivial).
+  3. Now we have a non-trivial null space.
+2. For the right matrix, again take some linear combinations of the null space of the left matrix.
+3. The product will be the zero matrix.
+
+### 2nd example
+
+Multiply a Upper Triangular matrix with a Lower Triangular matrix.
+- Each upper triangular matrix, when taken RREF with the identity matrix, will have integers in the matrix (and will also be a upper triangular matrix).
+  + Hence the inverse of UT matrix containing integeres will also be a UT matrix containing integers.
+- The same happens with the LT matrix.
+- Hence, the inverse of an UT or LT matrix containing only integers will also contain only integers respectively.
+- Hence the product of the inverses will also contain only integers.
+
+---
+
+## 131. A fascinating Matrix that anticipates Rotations
+
+Firstly. if you've forgotten, some fundamental trignometric identities:
+
+$$
+\begin{aligned}
+\sin(\alpha + \beta) &= \sin(\alpha)\cos(\beta) + \cos(\alpha)\sin(\beta) \\
+\cos(\alpha + \beta) &= \cos(\alpha)\cos(\beta) - \sin(\alpha)\sin(\beta)
+\end{aligned}
+$$
+
+Let's consider this matrix:
+
+$$
+\mathbf{R}(\alpha) =
+\begin{bmatrix}
+\cos(\alpha) & -\sin(\alpha) \\
+\sin(\alpha) & \cos(\alpha)
+\end{bmatrix}
+$$
+
+- If we plug in 0, it becomes the identity matrix.
+- If we plug in $-\alpha$, it becomes the __transpose__ of the matrix.
+
+Now, find $\mathbf{R}(\alpha)\mathbf{R}(\beta)$.
+
+$$
+\begin{aligned}
+\mathbf{R}(\alpha)\mathbf{R}(\beta) &=
+\begin{bmatrix}
+\cos(\alpha) & -\sin(\alpha) \\
+\sin(\alpha) & \cos(\alpha)
+\end{bmatrix}
+\begin{bmatrix}
+\cos(\beta) & -\sin(\beta) \\
+\sin(\beta) & \cos(\beta)
+\end{bmatrix} \\
+&=
+\begin{bmatrix}
+\cos(\alpha)\cos(\beta) - \sin(\alpha)\sin(\beta) & -\cos(\alpha)\sin(\beta) - \sin(\alpha)\cos(\beta) \\
+\sin(\alpha)\cos(\beta) + \cos(\alpha)\sin(\beta) & -\sin(\alpha)\sin(\beta) + \cos(\alpha)\cos(\beta)
+\end{bmatrix} \\
+&=
+\begin{bmatrix}
+\cos(\alpha + \beta) & -\sin(\alpha + \beta) \\
+\sin(\alpha + \beta) & \cos(\alpha + \beta)
+\end{bmatrix} \\
+&=
+\mathbf{R}(\alpha + \beta)
+\end{aligned}
+$$
+
+Product of F(x) and F(y) is F(x + y), there's something exponential going on over here.
+
+$$
+\mathbf{R}^{-1}(\alpha) = \mathbf{R}(-\alpha) = \mathbf{R}^T(\alpha)
+$$
+
+---
+
+## 132. Introduction to the Transpose of a Matrix
+
+Some ways to think:
+- The columns become the rows, and the rows become the columns.
+- The reflection of the matrix along the diagonal.
+
+Useful to represent the dot product of 2 vectors.
+
+Let
+
+$$
+\begin{aligned}
+\mathbf{a} &=
+\begin{bmatrix}
+a_1 \\\ a_2 \\\ a_3
+\end{bmatrix} \\
+\mathbf{b} &=
+\begin{bmatrix}
+b_1 \\\ b_2 \\\ b_3
+\end{bmatrix}
+\end{aligned}
+$$
+
+Then, the dot product can be represented as:
+
+$$
+\alpha \cdot \beta = \alpha^T\beta = \beta^T\alpha
+$$
+
+Let's verify this:
+
+$$
+\begin{aligned}
+\mathbf{a}^T\mathbf{b} &=
+\begin{bmatrix}
+a_1 & a_2 & a_3
+\end{bmatrix}
+\begin{bmatrix}
+b_1 \\\ b_2 \\\ b_3
+\end{bmatrix} \\
+&= \begin{bmatrix}
+a_1b_1 + a_2b_2 + a_3b_3\end{bmatrix}
+\end{aligned}
+$$
+
+---
+
+## 133. The Transpose of a Product
+
+![Transpose of a Product](./assets/17_transpose.svg)
+
+- We see that the column perspective of matrix multiplication changes to the row perspective for the exact same linear combinations of the exact same vectors.
+
+$$
+(\mathbf{AB})^T = \mathbf{B}^T\mathbf{A}^T
+$$
+
+---
+
+## 134. The Transpose of a Triple Product
+
+$$
+\begin{aligned}
+(\mathbf{ABC})^T
+&= (\mathbf{(AB)C})^T \\
+&= \mathbf{C}^T(\mathbf{AB})^T \\
+&= \mathbf{C}^T\mathbf{B}^T\mathbf{A}^T \\
+\end{aligned}
+$$
+
+---
+
+## 135. The Inverse of the Transpose
+
+$$
+\begin{aligned}
+\mathbf{A}\mathbf{A}^{-1} &= \mathbf{I} \\
+(\mathbf{A}\mathbf{A}^{-1})^T &= \mathbf{I}^T \\
+(\mathbf{A}^{-1})^T\mathbf{A}^T &= \mathbf{I} \\
+\end{aligned}
+$$
+
+Since the inverse is unique, we can say that $(\mathbf{A}^{-1})^T = (\mathbf{A}^T)^{-1}$.
+
+---
+
+## 136. The Symmetric Matrix
+
+- Symmetrical across the diagonal.
+- The transpose of the matrix is the same as the matrix itself.
+
+- __Symmetric matrices dropped out of nowhere to be truly surprising and truly valuable.__ Widely used in applied mathematics.
+
+---
+
+## 137. The product $\mathbf{A}^T\mathbf{A}$ is Always a Symmetric Matrix
+
+- __It's pairwise dot products of the columns of the matrix.__
+- The entry at $(i, j)$ is the dot product of the $i^{th}$ and $j^{th}$ column of the matrix.
+- So, if the matrix had 10 columns, it will be 10 columns and 10 rows.
+- The entry at $(i, j)$ is the same as the entry at $(j, i)$, because dot product is commutative.
+
+$$
+(\mathbf{A}^T\mathbf{A})^T = \mathbf{A}^T(\mathbf{A}^T)^T = \mathbf{A}^T\mathbf{A}
+$$
+
+---
+
+## 138. The Combination $\mathbf{x}^T\mathbf{A}\mathbf{y}; \mathbf{x}, \mathbf{y}$
+
+$\mathbf{x}^T\mathbf{A}\mathbf{y}; \mathbf{x}, \mathbf{y} \in \mathbb{R}^n$.
+
+...
