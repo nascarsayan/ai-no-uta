@@ -2168,3 +2168,187 @@ Yes, we need to take enough linearly independent combinations of the linearly in
 
 ---
 
+## 121. The Identity Matrix - The Number One of Matrix Algebra
+
+- From the right, it's the column picker - picks the same columns. 
+- From the left, it's the row picker - picks the same rows.
+- We don't need to have separate left and right identity matrices, as they are the same.
+
+$$
+\mathbf{I} =
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+$$
+
+---
+
+## 122. The Inspired Idea of the Matrix Inverse
+
+- Without commutativity there is no going forward.
+- The magical matrix which when multiplied at left on both sides of the equation $\mathbf{Ax} = \mathbf{b}$ :
+  + $\mathbf{A}^{-1}(\mathbf{Ax}) = \mathbf{A}^{-1}\mathbf{b}$
+  + ($\mathbf{A}^{-1}\mathbf{A})\mathbf{x} = \mathbf{A}^{-1}\mathbf{b}$ thanks to associativity.
+  + $\mathbf{Ix} = \mathbf{A}^{-1}\mathbf{b}$
+  + $\mathbf{x} = \mathbf{A}^{-1}\mathbf{b}$
+- We don't write $\mathbf{b} / \mathbf{A}$, because we can't convey whether to evaluate the numerator first and then divide, or to divide first. (__Matrix algebra is not commutative.__)
+
+---
+
+## 123. There is Only One Inverse Matrix
+
+__This is the second miracle of the matrix algebra! 🤩__
+
+> - The first miracle was __Row rank = Column rank__.
+> - The second miracle: __there is only one inverse matrix__ 😳.
+
+- Matrix multiplication is non-commutative, so this is surprising!
+
+$$
+\begin{aligned}
+\text{In general }\mathbf{AB} &\neq \mathbf{BA} \\
+\text{However, }\mathbf{AB} &= \mathbf{BA} = \mathbf{I} \\
+\text{Another one: }\mathbf{AI} &= \mathbf{IA} = \mathbf{A}
+\end{aligned}
+$$
+
+---
+
+## 124. Some Matrices are not Invertible
+
+$$
+\begin{bmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{bmatrix}
+\begin{bmatrix}
+& & & \\
+& & & \\
+& & &
+\end{bmatrix} =
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+$$
+
+The column space of the matrix is:
+
+$$
+\begin{bmatrix}
+a \\\ \frac{a+b}{2} \\\ b
+\end{bmatrix}
+$$
+
+Several contradictions if we assume the matrix has an inverse:
+- However, none of the columns of the identity matrix follow this linear dependence.
+- Another argument is, if the matrix had an inverse, there would be a unique solution, as per the algebra. However, we know that the null space is non-zero, hence there are infintely many solutions.
+
+We now know 3 __synonyms for one property of the Matrix__:
+1. Columns are linearly independent
+2. Rows are linearly independent.
+3. The matrix is invertible.
+
+---
+
+## 125. Algorithm to Calculate the Inverse Matrix
+
+![Inverse using Guassian Elimination](./assets/16_inverse_using_RREF.gif)
+
+---
+
+## 126. First Explanation for the Inversion Algorithm
+
+> Good explanation
+
+- We perform Gaussian Elimination on the matrix and a column from the answer.
+  + If we can't get identity matrix (in its RREF form) on the left, we can't get the inverse.
+  + Once we've got identity matrix on the left, the solution is on the right.
+- We perform this for every column of the unknown inverse matrix. The steps will produce the exact same values on the left. They just differ in the values of the right matrix.
+- Why not combine all the columns into a single matrix and perform the steps once? We can do that to reduce our work.
+
+---
+
+## 127. An Even Better Explanation for the Inversion Algorithm Based on RREF
+
+Since, Gaussian Elimination preserves the linear relationships between columns, below are some observations:
+
+$$
+\begin{aligned}
+\begin{bmatrix}
+\mathbf{A}\; \mathbf{A}
+\end{bmatrix} &\rightarrow
+\begin{bmatrix}
+\mathbf{I}\; \mathbf{I}
+\end{bmatrix} \\
+\begin{bmatrix}
+\mathbf{A}\; (\mathbf{AB})
+\end{bmatrix} &\rightarrow
+\begin{bmatrix}
+\mathbf{I}\; \mathbf{B}
+\end{bmatrix} \\
+\begin{bmatrix}
+\mathbf{A}\; \mathbf{I}
+\end{bmatrix} =
+\begin{bmatrix}
+\mathbf{A}\; (\mathbf{A}\mathbf{A}^{-1})
+\end{bmatrix} &\rightarrow
+\begin{bmatrix}
+\mathbf{I}\; \mathbf{A}^{-1}
+\end{bmatrix}
+\end{aligned}
+$$
+
+---
+
+## 128. The order of operations doesn't matter while doing RREF
+
+$$
+\begin{bmatrix}
+0 & 2 & 1 & 1 & 0 & 0 \\
+3 & 0 & -1 & 0 & 1 & 0 \\
+-2 & 1 & 1 & 0 & 0 & 1
+\end{bmatrix}
+$$
+
+We can be creative, and choose $(3, 3)$ as our first pivot, and then $(2, 2)$ as our second pivot, as per our convenience.
+
+The order matters when we aren't sure that the matrix is invertible, i.e., there might be dependencies among the columns.
+
+---
+
+## 129. The Inverse of the Product of Two Matrices
+
+$(\mathbf{AB})^{-1} \neq \mathbf{A}^{-1}\mathbf{B}^{-1}$.
+
+Good analogy from life:
+1. take a step forward
+2. turn left.
+
+TO come back to the original position, we need to:
+1. turn right
+2. take a step back.
+
+Hence, we need to do the inverse in the reverse order.
+
+Hence, $(\mathbf{AB})^{-1} = \mathbf{B}^{-1}\mathbf{A}^{-1}$.
+
+Algebraic proof:
+
+$$
+\begin{aligned}
+\mathbf{AB}\mathbf{B}^{-1}\mathbf{A}^{-1} =
+\mathbf{A}(\mathbf{B}\mathbf{B}^{-1})\mathbf{A}^{-1} =
+\mathbf{A}\mathbf{I}\mathbf{A}^{-1} =
+\mathbf{A}\mathbf{A}^{-1} =
+\mathbf{I}
+\end{aligned}
+$$
+
+__When you are undoing actions, you are always doing them in the opposite order__
+
+---

@@ -6,7 +6,8 @@ import yaml
 import argparse
 from typing import List, Tuple, Dict, Any
 from manim import (
-    Scene, MathTex, Write, Transform, FadeOut, UP, RIGHT, tempconfig, WHITE, BLACK, ManimColor
+    Scene, MathTex, Write, Transform, FadeOut, UP, RIGHT, tempconfig, WHITE, BLACK, ManimColor,
+    Text, FadeIn
 )
 
 # Define paths
@@ -62,6 +63,15 @@ class BoardScene(Scene):
         cfg, steps = parse_markdown(self.markdown_file)
         # Get font size from config or use default
         font_size = cfg.get("font_size", 40)
+        
+        # Display the title screen if available in frontmatter
+        title = cfg.get("title", self.markdown_file.stem)
+        title_text = Text(title, color=self.color, font_size=font_size*0.8)
+        self.play(FadeIn(title_text))
+        self.wait(2)
+        self.play(FadeOut(title_text))
+        self.wait(0.5)
+        
         # Get block configurations
         blocks_config = cfg.get("blocks", [])
         # Check if we have blocks defined
@@ -93,7 +103,7 @@ class BoardScene(Scene):
                 new_obj = MathTex(step[i], font_size=font_size, color=self.color).move_to(position)
                 # Transform the object
                 self.play(Transform(objects[name]["object"], new_obj))
-                self.wait(1)
+                self.wait(2)
         # Fade out all objects
         self.play(FadeOut(*[objects[name]["object"] for name in objects]))
         self.wait(1)
