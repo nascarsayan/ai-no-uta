@@ -2597,8 +2597,60 @@ $$
 
 ---
 
-## 138. The Combination $\mathbf{x}^T\mathbf{A}\mathbf{y}; \mathbf{x}, \mathbf{y}$
+## 138. The Combination $\mathbf{x}^T\mathbf{A}\mathbf{y}$
 
 $\mathbf{x}^T\mathbf{A}\mathbf{y}; \mathbf{x}, \mathbf{y} \in \mathbb{R}^n$.
 
-...
+$$
+\begin{aligned}
+\begin{bmatrix}
+x_1 & x_2
+\end{bmatrix}
+\begin{bmatrix}
+A_{11} & A_{12} \\
+A_{21} & A_{22}
+\end{bmatrix}
+\begin{bmatrix}
+y_1 \\\ y_2
+\end{bmatrix} &=
+\begin{bmatrix}
+x_1 & x_2
+\end{bmatrix}
+\begin{bmatrix}
+A_{11}y_1 + A_{12}y_2 \\
+A_{21}y_1 + A_{22}y_2
+\end{bmatrix} \\
+&= x_1(A_{11}y_1 + A_{12}y_2) + x_2(A_{21}y_1 + A_{22}y_2) \\
+&= x_1A_{11}y_1 + x_1A_{12}y_2 + x_2A_{21}y_1 + x_2A_{22}y_2 \\
+&= A_{11}x_1y_1 + A_{12}x_1y_2 + A_{21}x_2y_1 + A_{22}x_2y_2 \\
+&= \sum _{i,j\in \{ 1,2\} }A_{ij}x_{i}y_{j}
+\end{aligned}
+$$
+
+Hence, for a generic matrix with dimensions $m \times n$, the combination will be:
+
+$$
+\sum _{
+  i\in \{ 1,2, \cdots, m\},
+  j\in \{ 1,2, \cdots, n\}
+}
+A_{ij}x_{i}y_{j}
+$$
+
+---
+
+## 139. The Combination $\mathbf{x}^T\mathbf{A}\mathbf{y}$ for a Symmetric Matrix $\mathbf{A}$
+
+If $\mathbf{A}^T = \mathbf{A}$, then,
+
+$$
+\begin{aligned}
+(\mathbf{x}^T\mathbf{A}\mathbf{y})^T
+&= \mathbf{y}^T\mathbf{A}^T\mathbf{x} \\
+&= \mathbf{y}^T\mathbf{A}\mathbf{x} \quad (\text{ as } \mathbf{A}^T = \mathbf{A})
+\end{aligned}
+$$
+
+So, in a triple product, if the matrix is symmetric the order of the vectors doesn't matter.
+
+---
