@@ -2654,3 +2654,304 @@ $$
 So, in a triple product, if the matrix is symmetric the order of the vectors doesn't matter.
 
 ---
+
+## 140. Application Series - Polynomial Interpolation
+
+![Polynomial Interpolation Input](./assets/18_poly_interpol_inp.svg)
+
+4 Points: $(1, 0), (2, 1), (3, 1), (4, 1)$.
+
+$f(x) = a_0 + a_1x + a_2x^2 + a_3x^3$
+
+There are 4 points for curve fitting, and we have.a polynomial of degree 3, i.e., with 4 degrees of freedom.
+
+$$
+\begin{aligned}
+f(1) &= a_0 &+ a_1 &+ a_2 &+ a_3 &= 0 \\
+f(2) &= a_0 &+ 2a_1 &+ 4a_2 &+ 8a_3 &= 1 \\
+f(3) &= a_0 &+ 3a_1 &+ 9a_2 &+ 27a_3 &= 1 \\
+f(4) &= a_0 &+ 4a_1 &+ 16a_2 &+ 64a_3 &= 1
+\end{aligned}
+$$
+
+In matrix form:
+
+$$
+\begin{bmatrix}
+1 & 1 & 1 & 1 \\
+1 & 2 & 4 & 8 \\
+1 & 3 & 9 & 27 \\
+1 & 4 & 16 & 64
+\end{bmatrix}
+\begin{bmatrix}
+a_0 \\\ a_1 \\\ a_2 \\\ a_3
+\end{bmatrix} =
+\begin{bmatrix}
+0 \\\ 1 \\\ 1 \\\ 1
+\end{bmatrix}
+$$
+
+The matrix above is called __Vandermonde__ matrix.
+
+Using a computer, we can solve this system of equations. The solution is:
+
+$$
+\begin{bmatrix}
+-3 \\\ 13/3 \\\ -3/2 \\\ 1/6
+\end{bmatrix}
+$$
+
+Hence, the polynomial is: $f(x) = -3 + \frac{13}{3}x - \frac{3}{2}x^2 + \frac{1}{6}x^3$.
+
+![Polynomial Interpolation Output](./assets/19_poly_interpol_out.svg)
+
+We see that this is not a good extrapolator, even though it's the perfect interpolator.
+
+We didn't see wiggles in our data, but we can see wiggles in the polynomial between 2 to 4. This is known as the Runge phenomenon.
+
+---
+
+## 141. Application Series - Non-Polynomial Interpolation
+
+Let's try to tackle the Runge phenomenon by using a non-polynomial interpolator.
+
+$f(x) = a_0 + a_1x + a_2x^2 + a_3x^{-1}$
+
+$$
+\begin{aligned}
+f(1) &= a_0 &+ a_1 &+ a_2 &+ a_3 &= 0 \\
+f(2) &= a_0 &+ 2a_1 &+ 4a_2 &+ \frac{1}{2}a_3 &= 1 \\
+f(3) &= a_0 &+ 3a_1 &+ 9a_2 &+ \frac{1}{3}a_3 &= 1 \\
+f(4) &= a_0 &+ 4a_1 &+ 16a_2 &+ \frac{1}{4}a_3 &= 1
+\end{aligned}
+$$
+
+In matrix form:
+
+$$
+\begin{bmatrix}
+1 & 1 & 1 & 1 \\
+1 & 2 & 4 & 1/2 \\
+1 & 3 & 9 & 1/3 \\
+1 & 4 & 16 & 1/4
+\end{bmatrix}
+\begin{bmatrix}
+a_0 \\\ a_1 \\\ a_2 \\\ a_3
+\end{bmatrix} =
+\begin{bmatrix}
+0 \\\ 1 \\\ 1 \\\ 1
+\end{bmatrix}
+$$
+
+The solution is:
+
+$$
+\begin{bmatrix}
+16/3 \\\ -3/2 \\\ 1/6 \\\ 4
+\end{bmatrix}
+$$
+
+Hence, the polynomial is: $f(x) = \frac{16}{3} - \frac{3}{2}x + \frac{1}{6}x^2 + 4x^{-1}$.
+
+![Non-Polynomial Interpolation Output](./assets/20_non_poly_interpol_out.svg)
+
+Much better than the polynomial interpolator - it conforms to the data as we saw it.
+
+__The better the functions we are using, the better the results.__
+
+---
+
+## 140. Application Series - Polynomial Interpolation According to Lagrange
+
+- Construct **special polynomials** called Lagrange basis polynomials.
+- Each polynomial has these properties:
+  1. **Value = 1** at one specific input point.
+  2. **Value = 0** at all other input points.
+
+Inputs: $1, 2, 3, 4$
+
+1. $P_1(x)$ is **1 at $x = 1$** and **0 at $x = 2, 3, 4$.**
+- To create $P_1(x)$: $P_1(x) = \frac{(x-2)(x-3)(x-4)}{(1-2)(1-3)(1-4)}$
+- Denominator ensures that $P_1(1) = 1$.
+- Numerator forces $P_1(2), P_1(3)$, and $P_1(4)$ to be $0$.
+
+2. Similarly, $P_2(x), P_3(x), P_4(x)$ are constructed.
+
+$$
+P_1(x) = \frac{(x-2)(x-3)(x-4)}{(1-2)(1-3)(1-4)} \\
+\quad \\
+P_2(x) = \frac{(x-1)(x-3)(x-4)}{(2-1)(2-3)(2-4)} \\
+\quad \\
+P_3(x) = \frac{(x-1)(x-2)(x-4)}{(3-1)(3-2)(3-4)} \\
+\quad \\
+P_4(x) = \frac{(x-1)(x-2)(x-3)}{(4-1)(4-2)(4-3)}
+$$
+
+- Once we solve this system, we come to the exact same solution as we did with the Vandermonde matrix.
+
+#### Standard Basis:
+- Basis terms: $1$, $x$, $x^2$, $x^3$
+- Requires solving a **linear system** to find coefficients $a$, $b$, $c$, $d$ for:
+  $$
+  P(x) = a + bx + cx^2 + dx^3
+  $$
+
+#### Lagrange Basis:
+- Basis terms: $P_1(x)$, $P_2(x)$, $P_3(x)$, $P_4(x)$
+- Direct computation using given data points; no need to solve equations.
+
+#### Why Lagrange is Better:
+- For interpolation tasks with specific $x$ values, Lagrange basis simplifies calculations significantly.
+- Each data point directly translates into a coefficient.
+
+- __Choosing a basis is one of the most important decisions that you ever make when you approach a particular problem.__
+
+---
+
+## 141. Introduction to Elementary Matrices
+
+Elementary Matrices are a few row or column or switch operations away from Identity Matrix.
+
+In this video, we try to build a mental model of how __to arrive from an identity matrix to an elementary matrix by doing only row operations or only column operations__. We also see the switch operation.
+
+$$
+\begin{aligned}
+\begin{bmatrix}
+1 & & \\ 2 & 1 & \\ & & 1 
+\end{bmatrix} &
+\begin{bmatrix}
+1 & & \\ & 1 & \\ & - 7 & 1 
+\end{bmatrix} &
+\begin{bmatrix}
+1 & & \\ & 3 & \\ & & 1 
+\end{bmatrix} \\ 
+\begin{bmatrix}
+1 & & \\ 2 & 1 & \\ 3 & & 1 
+\end{bmatrix} &
+\begin{bmatrix}
+1 & & \\ & 3 & \\ & 3 & 1 
+\end{bmatrix} &
+\begin{bmatrix}
+1 & & \\ 1 & 1 & \\ & 1 & 1 
+\end{bmatrix} \\ 
+\begin{bmatrix}
+2 & & \\ 1 & 1 & \\ & & 1 
+\end{bmatrix} &
+\begin{bmatrix}
+1 & & 2 \\ & 2 & 4 \\ & & 2 
+\end{bmatrix} &
+\begin{bmatrix}
+1 & 2 & \\ 2 & 1 & \\ & & 1 
+\end{bmatrix}
+\end{aligned}
+$$
+
+__The last one is not an elementary matrix, because it's not even a triangular matrix.__
+
+---
+
+## 142. The Effect of an Elementary Matrix on another Matrix in a Product
+
+$$
+\begin{bmatrix}
+a & b & c \\
+d & e & f \\
+g & h & i
+\end{bmatrix}
+\begin{bmatrix}
+1 & 0 & 0 \\
+2 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix} =
+\begin{bmatrix}
+a+2b & b & c \\
+d+2e & e & f \\
+g+2h & h & i
+\end{bmatrix}
+$$
+
+$$
+\begin{bmatrix}
+1 & 0 & 0 \\
+2 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+a & b & c \\
+d & e & f \\
+g & h & i
+\end{bmatrix} =
+\begin{bmatrix}
+a & b & c \\
+2a+d & 2b+e & 2c+f \\
+g & h & i
+\end{bmatrix}
+$$
+
+When elementary matrix is on the __right__ of another matrix $\mathbf{M}$, it applied on it the same set of __column operations__ which were used to create the elementary matrix from the identity matrix.
+
+When elementary matrix is on the __left__, it applies the same set of __row operations__ which were used to create the elementary matrix from the identity matrix.
+
+It's as if it was an innocent identity, and it heard a joke, and then it tells the same joke to any matrix it meets.
+
+__Operations that make that matrix elementary are applied on the other matrix.__
+
+---
+
+## 145. The Inverse of an Elementary Matrix
+
+> Very interesting! 🤩
+>
+> __Elementary matrices rock 🤘__
+
+> [!CAUTION]
+> To get the inverse, you can __encode the reverse of the actions in a matrix.__
+
+---
+
+## 146. Elementary Matrix Exercises
+
+> [!NOTE]
+> This is an excellent set of exercises to get a good grip on elementary matrices. 🤩
+
+---
+
+## 147. The LU Decomposition
+
+$$
+\mathbf{A} = \mathbf{LU}
+$$
+
+- Record the steps of Gaussian Elimination
+- Encode it into elementary matrices of row operations on the left of $\mathbf{A}$.
+- Stack up these matrices:
+  + $\mathbb{L}_{i}\mathbb{L}_{i-1}\dots\mathbb{L}_{1}\mathbf{A} = \mathbf{U}$.
+- Take inverse of the stacked matrices:
+  + $\mathbf{A} = \mathbb{L}_{1}^{-1}\mathbb{L}_{2}^{-1}\dots\mathbb{L}_{i}^{-1}\mathbf{U}$.
+- Name the product of the inverses as $\mathbf{L}$:
+  + $\mathbf{A} = \mathbf{L}\mathbf{U}$.
+- Taking inverse, and multiplying elementary matrices are quite easy.
+- There can be cases where we require row switch operation during Guassian Elimination, which can be encoded as a switch matrix. However, this might cause the $\mathbf{L}$ matrix to be non-triangular. mathematicians are fine, they call this psychologically Lower Triangular.
+- It turns out computers are efficient when we the pivot elements are large absolute values. Hence, in algorithmic decmposition. we switch rows even when we don't have to (i.e., not for fixing the pivot, but efficiency).
+
+---
+
+## 148. The LU Decomposition Example
+
+Here, we note down the reverse of the Guassian Elimination steps into combined elementary matrices (1 for each pivot, to save space). Once we get the $\mathbf{U}$ matrix in the right, we multiply all the elementary matrices to get the $\mathbf{L}$ matrix. Then we verify the decomposition.
+
+---
+
+## 149. Third Explanation of the Matrix Inversion Algorithm
+
+$$
+\mathbf{U_2 U_1 D_2 D_1 S_1 L_4 L_3 L_2 L_1}\mathbf{A} = \mathbf{I}
+\rightarrow
+\mathbf{A}_{-1} = \mathbf{U_2 U_1 D_2 D_1 S_1 L_4 L_3 L_2 L_1 I}
+$$
+
+All these row operations that we apply on the Identity sub-Matrix till we get the Identity as output from Gaussian Elimiation will hence result in the inverse of the matrix.
+
+---
+
+$\textbf{ Done with Part 1! 🥳🥳🥳🥳🥳 }$
