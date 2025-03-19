@@ -122,7 +122,7 @@ All of them are about the order of operations not mattering:
 - Associativity: Order of the two addition operations doesn't matter.
 - Distributivity: Order of the multiplation operation and the addition operation doesn't matter.
 
-![Fundamental Laws](./assets/01_fundamental_laws.svg)
+![Fundamental Laws](../assets/01_fundamental_laws.svg)
 
 ---
 
@@ -152,13 +152,13 @@ Two ways to do $\vec{a} - \vec{b}$:
 1. $\vec{a} + (-\vec{b})$ : We can use the addition operation that we already know with $-\vec{b}$.
 2. $\vec{a} - \vec{b}$ is such a vector that when added to $\vec{b}$ gives $\vec{a}$.
 
-![Subtraction of Geometric Vectors](./assets/02_subtraction_of_vectors.svg)
+![Subtraction of Geometric Vectors](../assets/02_subtraction_of_vectors.svg)
 
 Subtraction is a piece of cake when vectors originate from the same point (origin) - Just draw from one tip to another tip.
 
 However, addition results can have larger error because additional construction is involved.
 
-![Subtraction is easier](./assets/03_sub_is_easier.svg)
+![Subtraction is easier](../assets/03_sub_is_easier.svg)
 
 ---
 
@@ -326,7 +326,7 @@ Consider, two vectors $\vec{a}$ and $\vec{b}$. We do linear combination, $\alpha
 
 ## 22. Equation of a straight line
 
-![Equation of a straight line](./assets/04_straight_line_quation.svg)
+![Equation of a straight line](../assets/04_straight_line_quation.svg)
 
 ---
 
@@ -347,13 +347,13 @@ Consider, two vectors $\vec{a}$ and $\vec{b}$. We do linear combination, $\alpha
 
 ## 29. Decomposition
 
-![decomposition](./assets/05_decompose_1.svg)
+![decomposition](../assets/05_decompose_1.svg)
 
 ---
 
 ## 30. Decomposition wrt arbitrary vectors
 
-![general decomposition](./assets/06_generic_decomposition.png)
+![general decomposition](../assets/06_generic_decomposition.png)
 
 - This looks like a skewed cartesian coordinate system. It's called __Affine grid__.
 
@@ -372,7 +372,7 @@ x^2 + 7x + 5 = \alpha _1 p_1(x) + \beta _1 p_2(x) + \gamma _1 p_3(x) \\
 x^2 - 7x = \alpha _2 p_1(x) + \beta _2 p_2(x) + \gamma _2 p_3(x)
 $$
 
-![Decompose Polynomial](./assets/07_decompose_polynomial.svg)
+![Decompose Polynomial](../assets/07_decompose_polynomial.svg)
 
 ---
 
@@ -740,7 +740,7 @@ $$
 
 ## 46. Linear Independence
 
-![Multiple Decomposition](./assets/08_multiple_decomposition.svg)
+![Multiple Decomposition](../assets/08_multiple_decomposition.svg)
 
 $$
 \begin{aligned}
@@ -848,7 +848,7 @@ This is a non-trivial linear combination of the vectors that equals zero, which 
 
 ## 51. Linear Dependence Example 1 - Geometric Vectors
 
-![Linear Dependence Example 1](./assets/09_multi_decompose_parametric.svg)
+![Linear Dependence Example 1](../assets/09_multi_decompose_parametric.svg)
 
 ### Equation 1
 
@@ -877,7 +877,7 @@ $$
 
 ## 52. Linear Dependence Example 2 - Geometric Vectors
 
-![decompose 2](./assets/10_decompose_2.png)
+![decompose 2](../assets/10_decompose_2.png)
 
 Linear dependence between the decomposition vectors: $\vec{a} + \vec{b} + \vec{c} = \vec{0}$.
 
@@ -889,7 +889,7 @@ $$
 \end{aligned}
 $$
 
-![decompose 3](./assets/11_decompose_3.svg)
+![decompose 3](../assets/11_decompose_3.svg)
 
 Linear dependence between the decomposition vectors:
 $$
@@ -913,7 +913,7 @@ $$
 
 ## 53. Linear Dependence Example 3 - Geometric Vectors
 
-![decompose 4](./assets/12_decompose_4.svg)
+![decompose 4](../assets/12_decompose_4.svg)
 
 Linear dependence between the decomposition vectors:
 
@@ -1013,7 +1013,7 @@ The matrix form and the polynomial form are kind similiar.
 - We see that Linear Combinations are acting like vectors.
 - if we have two vectors indicating linear dependence, then they can be added together, or multiplied by a scalar : the resultant vector is also 0.
 
-![decompose 4](./assets/12_decompose_4.svg)
+![decompose 4](../assets/12_decompose_4.svg)
 
 Linear dependence between the decomposition vectors:
 
@@ -1143,7 +1143,7 @@ When there is a unique solution for the system of equations, that system is call
 
 ## 65. Null Space of a Matrix
 
-![decompose 4](./assets/12_decompose_4.svg)
+![decompose 4](../assets/12_decompose_4.svg)
 
 $$
 \mathbf{N} =
@@ -1202,7 +1202,7 @@ $$
 
 ## 67. The Null Space of $3 \times 3$ Matrix with a Specific Pattern
 
-![Linear Depdency Subproblem](./assets/13_linear_dep_matrix_subproblem.svg)
+![Linear Depdency Subproblem](../assets/13_linear_dep_matrix_subproblem.svg)
 
 When we have a vector $[1, 0, 0]$ as a column of the matrix, the problem reduces to finding the dependency of the remaining 2 sub-columns of the matrix.
 
@@ -1264,7 +1264,7 @@ $$
 
 The pattern might appear in a different form too, instead of $[1, 0, 0]$, it might be $[0, 1, 0]$ or $[0, 0, 1]$, and can appear in any column. But the approach will be similar, to construct that sub-matrix.
 
-![Linear Depdency Subproblem](./assets/14_dep_subproblem_pattern_2.svg)
+![Linear Depdency Subproblem](../assets/14_dep_subproblem_pattern_2.svg)
 
 ---
 
@@ -1534,7 +1534,7 @@ However, the 2nd and 4th columns are $\mathbf{0}$, so they are not contributing 
 
 We are working with vectors in $\mathbb{R}^4$. We'll keep on adding vectors to the matrix, and see how the column space and the null space evolve.
 
-![Column and Null Space Evolution](./assets/15_column_and_null_spaces_steps.gif)
+![Column and Null Space Evolution](../assets/15_column_and_null_spaces_steps.gif)
 
 We see, that with the addition of every new column, it is either:
 - independent of the previous columns, in which case it augments the dimension of the column space, or
@@ -2226,7 +2226,7 @@ We now know 3 __synonyms for one property of the Matrix__:
 
 ## 125. Algorithm to Calculate the Inverse Matrix
 
-![Inverse using Guassian Elimination](./assets/16_inverse_using_RREF.gif)
+![Inverse using Guassian Elimination](../assets/16_inverse_using_RREF.gif)
 
 ---
 
@@ -2507,7 +2507,7 @@ $$
 
 ## 133. The Transpose of a Product
 
-![Transpose of a Product](./assets/17_transpose.svg)
+![Transpose of a Product](../assets/17_transpose.svg)
 
 - We see that the column perspective of matrix multiplication changes to the row perspective for the exact same linear combinations of the exact same vectors.
 
@@ -2626,7 +2626,7 @@ So, in a triple product, if the matrix is symmetric the order of the vectors doe
 
 ## 140. Application Series - Polynomial Interpolation
 
-![Polynomial Interpolation Input](./assets/18_poly_interpol_inp.svg)
+![Polynomial Interpolation Input](../assets/18_poly_interpol_inp.svg)
 
 4 Points: $(1, 0), (2, 1), (3, 1), (4, 1)$.
 
@@ -2672,7 +2672,7 @@ $$
 
 Hence, the polynomial is: $f(x) = -3 + \frac{13}{3}x - \frac{3}{2}x^2 + \frac{1}{6}x^3$.
 
-![Polynomial Interpolation Output](./assets/19_poly_interpol_out.svg)
+![Polynomial Interpolation Output](../assets/19_poly_interpol_out.svg)
 
 We see that this is not a good extrapolator, even though it's the perfect interpolator.
 
@@ -2722,7 +2722,7 @@ $$
 
 Hence, the polynomial is: $f(x) = \frac{16}{3} - \frac{3}{2}x + \frac{1}{6}x^2 + 4x^{-1}$.
 
-![Non-Polynomial Interpolation Output](./assets/20_non_poly_interpol_out.svg)
+![Non-Polynomial Interpolation Output](../assets/20_non_poly_interpol_out.svg)
 
 Much better than the polynomial interpolator - it conforms to the data as we saw it.
 
