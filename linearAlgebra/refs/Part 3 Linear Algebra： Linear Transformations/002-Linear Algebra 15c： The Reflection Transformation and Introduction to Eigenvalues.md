@@ -25,17 +25,17 @@ If a vector **$U$** is reflected, the result is denoted by **$R(U)$**.
 1. **Addition:**
    - Does reflection distribute over vector addition?
      
-     $$
-     R(U + V) = R(U) + R(V)
-     $$
+$$
+R(U + V) = R(U) + R(V)
+$$
    - Visual proof using the **parallelogram rule** demonstrates that the reflected sum equals the sum of individual reflections.
 
 2. **Scalar Multiplication:**
    - Test if reflection satisfies scalar multiplication:
      
-     $$
-     R(cU) = cR(U), \, \text{where } c \text{ is a scalar.}
-     $$
+$$
+R(cU) = cR(U), \, \text{where } c \text{ is a scalar.}
+$$
    - Visual observations confirm the equivalence.
 
 #### Conclusion:
@@ -56,9 +56,9 @@ If a vector **$U$** is reflected, the result is denoted by **$R(U)$**.
 - Eigenvectors of a transformation are vectors that remain **parallel** to themselves under the transformation.
 - Formally, for a vector **$V$**:
   
-  $$
-  R(V) = \lambda V, \, \text{where } \lambda \text{ (lambda) is a scalar called the eigenvalue.}
-  ```
+$$
+R(V) = \lambda V, \, \text{where } \lambda \text{ (lambda) is a scalar called the eigenvalue.}
+$$
 
 ---
 
@@ -66,16 +66,16 @@ If a vector **$U$** is reflected, the result is denoted by **$R(U)$**.
 #### Case 1: Vectors on the Line of Reflection
 - Any vector **on** the line of reflection **remains unchanged**:
   
-  $$
-  R(V) = V, \, \lambda = 1.
-  ```
+$$
+R(V) = V, \, \lambda = 1.
+$$
 
 #### Case 2: Vectors Orthogonal to the Line of Reflection
 - Any vector **perpendicular** to the line of reflection becomes its opposite:
   
-  $$
-  R(O) = -O, \, \lambda = -1.
-  ```
+$$
+R(O) = -O, \, \lambda = -1.
+$$
 
 ### Observations:
 - Reflection has two eigenvalues:
