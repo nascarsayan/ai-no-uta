@@ -2,6 +2,7 @@ from pathlib import Path
 import re
 import subprocess
 import shutil
+import traceback
 import yaml
 import argparse
 from typing import List, Tuple, Dict, Any
@@ -32,7 +33,7 @@ def parse_markdown(filename: Path) -> Tuple[Dict[str, Any], List[List[str]]]:
     # Extract content after frontmatter
     content = content[frontmatter_match.end():]
     # Split steps based on "### Step"
-    steps: List[str] = re.split(r"### Step \d+", content)
+    steps: List[str] = re.split(r"#+ Step \d+", content)
     steps = [step for step in steps if step]
     # Get the number of blocks from frontmatter
     num_blocks = len(cfg.get("blocks", []))
@@ -45,6 +46,7 @@ def parse_markdown(filename: Path) -> Tuple[Dict[str, Any], List[List[str]]]:
             extracted_steps.append(latex_blocks)
         else:
             print(f"Warning: Expected {num_blocks} LaTeX blocks, found {len(latex_blocks)} in step for {filename}")
+    print(f"Extracted {len(extracted_steps)} steps with {num_blocks} blocks each from {filename}")
     return cfg, extracted_steps
 
 class BoardScene(Scene):
@@ -183,6 +185,7 @@ def process_markdown_file(markdown_file: Path, destination: Path, theme: ManimCo
         return True
     except Exception as e:
         print(f"Error processing {markdown_file.name}: {e}")
+        traceback.print_exc()
     return False
 
 def main():

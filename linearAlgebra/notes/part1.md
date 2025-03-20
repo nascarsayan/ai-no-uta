@@ -203,7 +203,7 @@ q(x) &= x^2 + x \\
 \end{align*}
 $$
 
-Is $p(x)$ a multiple of $q(x)$? IIf we are not looking into the vector aspect, then yes. However, when we are considering polynomial as vectors, then only scalar multiples are allowed, we cannot multiply by `x`, which is not a scalar value (number).
+Is $p(x)$ a multiple of $q(x)$? If we are not looking into the vector aspect, then yes. However, when we are considering polynomial as vectors, then only scalar multiples are allowed, we cannot multiply by `x`, which is not a scalar value (number).
 
 ---
 

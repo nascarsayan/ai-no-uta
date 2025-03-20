@@ -1,5 +1,5 @@
 ---
-name: Inverse of a Matrix using Row Reduced Echelon Form
+title: Matrix Inverse using RREF
 font_size: 60
 blocks:
   - name: "Matrix"

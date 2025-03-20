@@ -1,4 +1,5 @@
 ---
+title: Column Space and Null Space
 font_size: 40
 blocks:
   - name: "Matrix"
