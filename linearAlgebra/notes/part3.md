@@ -6,15 +6,15 @@ Result is the same irrespective of the order of operations:
 
 $$
 \begin{cases}
-\operatorname{T}(\mathbf{u} + \mathbf{v}) &= \operatorname{T}(\mathbf{u}) + \operatorname{T}(\mathbf{v})\\
-\operatorname{T}(\alpha\mathbf{u}) &= \alpha\operatorname{T}(\mathbf{u})
+{T}(\mathbf{u} + \mathbf{v}) &= {T}(\mathbf{u}) + {T}(\mathbf{v})\\
+{T}(\alpha\mathbf{u}) &= \alpha{T}(\mathbf{u})
 \end{cases}
 $$
 
 or, in a single equation:
 
 $$
-\operatorname{T}(\alpha\mathbf{u} + \beta\mathbf{v}) = \alpha\operatorname{T}(\mathbf{u}) + \beta\operatorname{T}(\mathbf{v})
+{T}(\alpha\mathbf{u} + \beta\mathbf{v}) = \alpha{T}(\mathbf{u}) + \beta{T}(\mathbf{v})
 $$
 
 ---
@@ -605,9 +605,9 @@ Now, again, the coefficient of $\lambda^{n-1}$ is the sum of the roots, and the 
 
 $$
 \begin{align*}
-&(\lambda _1 - \lambda)(\lambda _2 - \lambda)\ldots(\lambda _n - \lambda) \\
-=& \lambda^n - \sum_{i=1}^{n}\lambda^{n-1} + \ldots + (-1)^n\prod_{i=1}^{n}\lambda_i\\
-=& \pm \lambda^n \mp \sum_{i=1}^{n}a_{ii}\lambda^{n-1} \pm \ldots + |A|
+&(\lambda _1 - \lambda)(\lambda _2 - \lambda)\ldots(\lambda _n - \lambda) \\=&
+\lambda^n - \sum_{i=1}^{n}\lambda^{n-1} + \ldots + (-1)^n\prod_{i=1}^{n}\lambda_i\\=&
+\pm \lambda^n \mp \sum_{i=1}^{n}a_{ii}\lambda^{n-1} \pm \ldots + |A|
 \end{align*}
 $$
 
