@@ -650,3 +650,162 @@ Hence, the eigenvalues of $\mathbf{A}$ and $\mathbf{A}^{T}$ are the same (but no
 We solve some exercises on eigenvalues and eigenvectors.
 
 ---
+
+## 26. Repeated Eigenvalues and the Geometric Multiplicity
+
+- When the eigenspace is multi-dimensional, we need to pick some linearly independent arbitrary eigenvectors to represent the eigenspace.
+- The geometric multiplicity of an eigenvalue is the dimension of the eigenspace corresponding to that eigenvalue.
+
+---
+
+## 27. Repeated Eigenvalues and the Algebraic Multiplicity
+
+- The algebraic multiplicity of an eigenvalue is the number of times it appears as a root of the characteristic polynomial.
+
+---
+
+## 28. Algebraic Multiplicity Matches Geometric Multiplicity
+
+Typically, the algebraic multiplicity of an eigenvalue is equal to the geometric multiplicity. (most cases).
+
+---
+
+## 29. Defective Matrices
+
+- When the algebraic multiplicity is greater than the geometric multiplicity, the matrix is called defective.
+
+$$
+\begin{bmatrix}
+3 & 2 \\
+ & 3 \\
+\end{bmatrix}\\
+\quad\\
+\begin{bmatrix}
+3 & 2 & \\
+& 3 & 4 \\
+&  &  3
+\end{bmatrix}
+$$
+
+Eigenvalue = $(3, 3)$, $(3, 3, 3)$ respectively.
+
+Substitute $\lambda = 3$ in the matrix:
+
+$$
+\begin{bmatrix}
+0 & 2 \\
+0 & 0
+\end{bmatrix}\\
+\begin{bmatrix}
+0 & 2 & 0\\
+0 & 0 & 4\\
+0 & 0 & 0
+\end{bmatrix}
+$$
+
+We see, that the geometric multiplicity is 1 in both cases, but the algebraic multiplicity is 2 and 3 respectively.
+
+A defective matrix need not be triangular.
+
+$$
+\begin{bmatrix}
+4 & -1 \\
+1 & 2
+\end{bmatrix}
+$$
+
+Eigenvalue = $(3, 3)$
+Eigenvector = $(1, 1)$
+
+__The defect is the difference between the algebraic and the geometric multiplicity.__
+
+Defect can be greater than 1 too.
+
+__The defective property is fragile.__
+- If you change some entry in the matrix by a very small amount, the matrix will become non-defective, and the changes in the eigenvalues is much greater than the change in the matrix.
+  + Compared to this the changes in the eigenvalues in symmetric matrices is much more proportional to the changes in the matrix made to make it non-symmetric.
+- The probability that you'll get a defective matrix in applications (in the real world) is 0.
+
+---
+
+## 30. Defective Transformations?
+
+We observe that cubic polynomials have algebraic multiplicity 4, but geometric multiplicity 1.
+
+---
+
+## 31. Generalized Eigenvectors
+
+We learn more about defects here, and how to find the remaining bases of the eigenspace.
+
+- generalized vectors are the remaining vectors in the eigenspace.
+- The generalized vectors are the solutions to the equation $(\mathbf{A} - \lambda\mathbf{I})\mathbf{v} = \mathbf{u}$, where $\mathbf{u}$ is the generalized vector.
+- The generalized vectors are not eigenvectors, but they are in the eigenspace.
+- If we have n eigenvectors then we have (dimension of the eigenspace - n) generalized vectors.
+- All the generalized vectors are linearly independent.
+
+$$
+\begin{bmatrix}
+6 & -2 & -1\\
+3 & 1 & -1\\
+2 & -1 & 2
+\end{bmatrix}
+$$
+
+$$
+p(\lambda) = (3 - \lambda)^3
+\implies \lambda = 3, 3, 3
+$$
+
+$$
+\begin{align*}
+\begin{bmatrix}
+3 & -2 & -1\\
+3 & -2 & -1\\
+2 & -1 & -1
+\end{bmatrix}
+\begin{bmatrix}
+1 \\\ 1 \\\ 1
+\end{bmatrix} &=
+\begin{bmatrix}
+0 \\\ 0 \\\ 0
+\end{bmatrix}\\
+\begin{bmatrix}
+3 & -2 & -1\\
+3 & -2 & -1\\
+2 & -1 & -1
+\end{bmatrix}
+\begin{bmatrix}
+0 \\\ 0 \\\ -1
+\end{bmatrix} &=
+\begin{bmatrix}
+1 \\\ 1 \\\ 1
+\end{bmatrix} \text{Generalized vector Rank 2}\\
+\begin{bmatrix}
+3 & -2 & -1\\
+3 & -2 & -1\\
+2 & -1 & -1
+\end{bmatrix}
+\begin{bmatrix}
+0 \\\ -1 \\\ 2
+\end{bmatrix} &=
+\begin{bmatrix}
+0 \\\ 0 \\\ -1
+\end{bmatrix} \text{Generalized vector Rank 3}
+\end{align*}
+$$
+
+---
+
+## 31. Generalized Eigenvector Example
+
+$$
+\begin{bmatrix}
+4 & 1 & 0\\
+1 & 4 & 1\\
+4 & -4 & 7
+\end{bmatrix}
+$$
+
+---
+
