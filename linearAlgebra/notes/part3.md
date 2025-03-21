@@ -381,7 +381,7 @@ $$
 
 - Projection does not have inverse
 
-- Rotation has inverse: $R^{-1}_\alpha = R_{-\alpha}$
+- Rotation has inverse: ${R_\alpha}^{-1} = R_{-\alpha}$
 
 - Translation is not linear, but still we can talk about its inverse. $T_{\vec{a}}^{-1} = T_{-\vec{a}}$
 
@@ -598,16 +598,18 @@ Hence, the constant term is the determinant of the matrix.
 TIll now, we haven't spoken about the eigenvalues. Once we have computed the roots of the characteristic polynomial, we'll have the eigenvalues. Then the same characteristic polynomial can be written as:
 
 $$
-\pm \lambda^{n-1} \mp C_{n-1}\lambda^{n-1} + \ldots + C_0 \\= (\lambda _1 - \lambda)(\lambda _2 - \lambda)\ldots(\lambda _n - \lambda)
+\begin{align*}
+&\pm \lambda^{n-1} \mp C_{n-1}\lambda^{n-1} + \ldots + C_0 \\ =& (\lambda _1 - \lambda)(\lambda _2 - \lambda)\ldots(\lambda _n - \lambda)
+\end{align*}
 $$
 
 Now, again, the coefficient of $\lambda^{n-1}$ is the sum of the roots, and the constant term is the product of the roots.
 
 $$
 \begin{align*}
-&(\lambda _1 - \lambda)(\lambda _2 - \lambda)\ldots(\lambda _n - \lambda) \\=&
-\lambda^n - \sum_{i=1}^{n}\lambda^{n-1} + \ldots + (-1)^n\prod_{i=1}^{n}\lambda_i\\=&
-\pm \lambda^n \mp \sum_{i=1}^{n}a_{ii}\lambda^{n-1} \pm \ldots + |A|
+&(\lambda_1 - \lambda)(\lambda_2 - \lambda)\ldots(\lambda_n - \lambda) \\
+=&\lambda^n - \sum_{i=1}^{n}\lambda^{n-1} + \ldots + (-1)^n\prod_{i=1}^{n}\lambda_i\\
+=&\pm \lambda^n \mp \sum_{i=1}^{n}a_{ii}\lambda^{n-1} \pm \ldots + |A|
 \end{align*}
 $$
 
