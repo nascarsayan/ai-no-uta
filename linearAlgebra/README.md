@@ -30,6 +30,6 @@ done
 
 ## Notes:
 
-[Part 1 - Intro](./notes/part1.md)
-[Part 2 - Determinants](./notes/part2.md)
-[Part 3 - Linear Transformations](./notes/part3.md)
+- [Part 1 - Intro](./notes/part1.md)
+- [Part 2 - Determinants](./notes/part2.md)
+- [Part 3 - Linear Transformations](./notes/part3.md)
