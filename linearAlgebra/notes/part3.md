@@ -797,7 +797,7 @@ $$
 
 ---
 
-## 31. Generalized Eigenvector Example
+## 32. Generalized Eigenvector Example
 
 $$
 \begin{bmatrix}
@@ -806,6 +806,43 @@ $$
 4 & -4 & 7
 \end{bmatrix}
 $$
+
+---
+
+## 33. Defective Transformations!
+
+- Null space is also called the __kernel of the transformation__.
+
+Defective transformations can be realised in transformations outside the $\mathbb{R}^n$ space too.
+For example, in the polynomial space, the derivative operator in the cubic polynomial space is defective. The null space is the linear polynomials, and the algebraic multiplicity is 3. We can use the same method we used for the matrix to find the generalized eigenvectors.
+
+$$
+\frac{d}{dx} 1 = 0, \lambda = 0
+$$
+
+Since $\lambda = 0$, to find the rank 2 genereated eigenvector, $\frac{d}{dx} - 0I$ is still the same as $\frac{d}{dx}$.
+
+$1$, the eigenvector, is also in the range of the transformation. Pre-image o $1$:
+
+$$
+\frac{d}{dx} x = 1
+$$
+
+$x$ is the generalized eigenvector of rank 2. It is also in the range of the transformation.
+
+$$
+\frac{d}{dx} 1/2 x^2 = x
+$$
+
+$1/2 x^2$ is the generalized eigenvector of rank 3. It is also in the range of the transformation.
+
+$$
+\frac{d}{dx} 1/6 x^3 = 1/2 x^2
+$$
+
+$1/6 x^3$ is the generalized eigenvector of rank 4. It is also in the range of the transformation.
+
+The process stops here for cubic polynomials.
 
 ---
 
