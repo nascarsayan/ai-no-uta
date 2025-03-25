@@ -846,3 +846,11 @@ The process stops here for cubic polynomials.
 
 ---
 
+## 34. Eigenvalues and Eigenvectors of the Square and the Inverse
+
+$$
+\mathbf{Av} = \lambda\mathbf{v}
+$$
+
+Do we have any connection between the eigenvalues between $\mathbf{A}$ and $\mathbf{A}^{-1}$, $\mathbf{A}^2$?
+
