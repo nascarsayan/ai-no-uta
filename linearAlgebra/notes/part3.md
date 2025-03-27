@@ -854,3 +854,89 @@ $$
 
 Do we have any connection between the eigenvalues between $\mathbf{A}$ and $\mathbf{A}^{-1}$, $\mathbf{A}^2$?
 
+$$
+\begin{align*}
+\mathbf{Av} &= \lambda\mathbf{v}\\
+\mathbf{AAv} &= \lambda\mathbf{Av}\\
+\mathbf{A}^2\mathbf{v} &= \lambda^2\mathbf{v}
+\end{align*}
+$$
+
+$$
+\begin{align*}
+\mathbf{Av} &= \lambda\mathbf{v}\\
+\mathbf{A}^{-1}\mathbf{Av} &= \lambda\mathbf{A}^{-1}\mathbf{v}\\
+\mathbf{v} &= \lambda\mathbf{A}^{-1}\mathbf{v}\\
+\mathbf{A}^{-1}\mathbf{v} &= \frac{1}{\lambda}\mathbf{v}
+\end{align*}
+$$
+
+- The eigenvalues of $\mathbf{A}^2$ are the squares of the eigenvalues of $\mathbf{A}$.
+- The eigenvalues of $\mathbf{A}^{-1}$ are the inverses of the eigenvalues of $\mathbf{A}$.
+- The eigenvectors of $\mathbf{A}$ and $\mathbf{A}^{-1}$ are the same.
+- The eigenvectors of $\mathbf{A}$ and $\mathbf{A}^2$ are the same.
+
+---
+
+## 35. Eigenvalues, Eigenvectors and the Similarity Transformation
+
+Let $\mathbf{A}$ have eigenvalue $\lambda$ and eigenvector $\mathbf{v}$.
+
+Let $\mathbf{B} = \mathbf{X}\mathbf{A}\mathbf{X}^{-1}$, where $\mathbf{X}$ is an invertible matrix.
+
+This transformation ($\mathbf{A} \to \mathbf{B}$) is called the __similarity transformation__.
+
+What is the relation of eigenvalues and eigenvectors of $\mathbf{A}$ and $\mathbf{B}$?
+
+Let $\mathbf{u} = \mathbf{X}\mathbf{v}$
+
+$$
+\begin{align*}
+\mathbf{B}\mathbf{u} &= \mathbf{X}\mathbf{A}\mathbf{X}^{-1}\mathbf{u}\\
+&= \mathbf{X}\mathbf{A}\mathbf{X}^{-1}\mathbf{X}\mathbf{v}\\
+&= \mathbf{X}\mathbf{A}\mathbf{v}\\
+&= \mathbf{X}\lambda\mathbf{v}\\
+&= \lambda\mathbf{X}\mathbf{v}\\
+&= \lambda\mathbf{u}
+\end{align*}
+$$
+
+Hence,
+- Eigenvalue of $\mathbf{X}\mathbf{A}\mathbf{X}^{-1}$ is the same as the eigenvalue of $\mathbf{A}$.
+- Eigenvector of $\mathbf{X}\mathbf{A}\mathbf{X}^{-1}$ is $\mathbf{X}$ times the eigenvector of $\mathbf{A}$.
+
+---
+
+## 36. Similarity Transformation Preserve the Trace and the Determinant
+
+For the matrix $\mathbf{A}$, which one could be a matrix related by the similarity transformation?
+
+$$
+\begin{bmatrix}
+1 & 3\\
+-2 & 6
+\end{bmatrix}
+$$
+
+$$
+\begin{bmatrix}
+8 & 3\\
+-6 & -1
+\end{bmatrix},\quad
+\begin{bmatrix}
+5 & 1\\
+-2 & 2
+\end{bmatrix},\quad
+\begin{bmatrix}
+10 & 4\\
+-8 & -2
+\end{bmatrix}
+$$
+
+- The eigenvalues are the same, we can check the trace and the determinant to rule out the non-candidates.
+- For a $2\times2$ matrix, the sum and the product of the eigenvalues can determine both the eigenvalues. Hence, for $2\times2$ matrices, we can conclusively say the matrices are similar or not by just checking the trace and the determinant.
+
+We see the 2nd candidate has both the trace and the determinant equal to the given matrix. Hence, it is related by the similarity transformation.
+
+---
+
